@@ -15,8 +15,8 @@ public class Saab95 extends Cars{
     /**
      * Instantiates a new Saab 95. Turbo is off on default.
      */
-    public Saab95(){
-        super(2, 125, 0, Color.red, "src.Saab95");
+    public Saab95(int xCor, int yCor){
+        super(2, 125, 0, Color.red, "src.Saab95", xCor, yCor);
 	    turboOn = false;
         stopEngine();
     }

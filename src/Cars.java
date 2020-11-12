@@ -27,6 +27,10 @@ public abstract class Cars implements Movable {
      */
     public String modelName; // The car model name
 
+    public int xCor;
+
+    public int yCor;
+
     /**
      * Instantiates a new Car.
      *
@@ -36,12 +40,14 @@ public abstract class Cars implements Movable {
      * @param color        the color
      * @param modelName    the model name
      */
-    public Cars(int nrDoors, double enginePower, double currentSpeed, Color color, String modelName) {
+    public Cars(int nrDoors, double enginePower, double currentSpeed, Color color, String modelName, int xCor, int yCor) {
         this.nrDoors = nrDoors;
         this.enginePower = enginePower;
         this.currentSpeed = currentSpeed;
         this.color = color;
         this.modelName = modelName;
+        this.xCor = xCor;
+        this.yCor = yCor;
     }
 
     /**
