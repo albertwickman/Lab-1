@@ -147,7 +147,22 @@ public abstract class Cars implements Movable {
 
     @Override
     public void turnLeft() {
-        
+        if(dx < 0) {
+            dx = 0;
+            dy = getCurrentSpeed();
+        }
+        else if(dx > 0) {
+            dx = 0;
+            dy = -getCurrentSpeed();
+        }
+        else if (dy < 0) {
+            dx = -getCurrentSpeed();
+            dy = 0;
+        }
+        else if(dy > 0) {
+            dx = getCurrentSpeed();
+            dy = 0;
+        }
     }
 
     @Override
