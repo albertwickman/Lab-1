@@ -3,7 +3,7 @@ import java.awt.*;
 /**
  * Class for Volvo 240. Extends Cars.
  */
-public abstract class Volvo240 extends Cars{
+public class Volvo240 extends Cars{
     /**
      *  Final private trim factor
      */
