@@ -99,7 +99,7 @@ public abstract class Cars implements Movable {
      *
      * @param currentSpeed set speed
      */
-    public void setCurrentSpeed(double currentSpeed) {
+    protected void setCurrentSpeed(double currentSpeed) {
         this.currentSpeed = currentSpeed;
     }
 
