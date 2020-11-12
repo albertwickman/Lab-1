@@ -1,29 +1,36 @@
+package src;
+
 import java.awt.*;
 
 /**
- * Abstract class for Cars
+ * Abstract class for src.Cars
  */
 public abstract class Cars implements Movable {
     /**
      * The Nr doors.
      */
-    public int nrDoors; // Number of doors on the car
+    private final int nrDoors; // Number of doors on the car
     /**
      * The Engine power.
      */
-    public double enginePower; // Engine power of the car
+    private final double enginePower; // Engine power of the car
     /**
      * The Current speed.
      */
-    public double currentSpeed; // The current speed of the car
+    private double currentSpeed; // The current speed of the car
+
     /**
      * The Color.
      */
-    public Color color; // Color of the car
+    private Color color; // Color of the car
     /**
      * The Model name.
      */
-    public String modelName; // The car model name
+    private final String modelName; // The car model name
+
+    public int xCor;
+
+    public int yCor;
 
     /**
      * Instantiates a new Car.
@@ -34,18 +41,20 @@ public abstract class Cars implements Movable {
      * @param color        the color
      * @param modelName    the model name
      */
-    public Cars(int nrDoors, double enginePower, double currentSpeed, Color color, String modelName) {
+    public Cars(int nrDoors, double enginePower, double currentSpeed, Color color, String modelName, int xCor, int yCor) {
         this.nrDoors = nrDoors;
         this.enginePower = enginePower;
         this.currentSpeed = currentSpeed;
         this.color = color;
         this.modelName = modelName;
+        this.xCor = xCor;
+        this.yCor = yCor;
     }
 
     /**
      * Moves the car one step.
      */
-    @Override
+
     public void move() {
 
     }
@@ -75,6 +84,15 @@ public abstract class Cars implements Movable {
      */
     public double getCurrentSpeed() {
         return currentSpeed;
+    }
+
+    /**
+     *  Sets current speed.
+     *
+     * @param currentSpeed set speed
+     */
+    public void setCurrentSpeed(double currentSpeed) {
+        this.currentSpeed = currentSpeed;
     }
 
     /**
@@ -116,5 +134,13 @@ public abstract class Cars implements Movable {
      */
     public void stopEngine(){
         currentSpeed = 0;
+    }
+
+    @Override
+    public void turnLeft() {}
+
+    @Override
+    public void turnRight() {
+
     }
 }

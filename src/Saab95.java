@@ -34,6 +34,14 @@ public abstract class Saab95 extends Cars{
     }
 
     /**
+     * Gets status of turbo
+     * @return boolean value of turbo
+     */
+    public boolean isTurboOn() {
+        return turboOn;
+    }
+
+    /**
      * Gets the speed factor. Takes the turbo into account.
      *
      * @return speed factor
