@@ -17,16 +17,16 @@ public class TestSaab95 {
     @Test
     public void gasNoTurbo() {
         Saab95 saab = new Saab95(0,0);
-        saab.gas(20);
-        assertEquals(0, Double.compare(saab.getCurrentSpeed(), 25));
+        saab.gas(0.5);
+        assertEquals(0, Double.compare(saab.getCurrentSpeed(), 0.625));
     }
 
     @Test
     public void gasTurbo() {
         Saab95 saab = new Saab95(0,0);
         saab.setTurboOn();
-        saab.gas(20);
-        assertEquals(0, Double.compare(saab.getCurrentSpeed(), 32.5));
+        saab.gas(0.5);
+        assertEquals(0, Double.compare(saab.getCurrentSpeed(), 0.8125));
     }
 
     @Test
@@ -40,9 +40,9 @@ public class TestSaab95 {
     @Test
     public void brakeTest() {
         Saab95 saab = new Saab95(0,0);
-        saab.gas(20);
-        saab.brake(10);
-        assertEquals(0, Double.compare(saab.getCurrentSpeed(), 12.5));
+        saab.gas(0.5);
+        saab.brake(0.25);
+        assertEquals(0, Double.compare(saab.getCurrentSpeed(), 0.3125));
     }
 
 }
