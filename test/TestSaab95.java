@@ -1,0 +1,23 @@
+import org.junit.Test;
+import src.Saab95;
+
+import static org.junit.Assert.*;
+
+public class TestSaab95 {
+    @Test
+    public void twoDoors() {
+        assertEquals(0, Double.compare(2.0, new Saab95(0, 0).getNrDoors()));
+    }
+
+    @Test
+    public void speedOnStart() {
+        assertEquals(0, Double.compare(new Saab95(0,0).getCurrentSpeed(), 0.0));
+    }
+
+    @Test
+    public void gasNoTurbo() {
+        Saab95 saab = new Saab95(0,0);
+        saab.gas(20);
+        assertEquals();
+    }
+}
