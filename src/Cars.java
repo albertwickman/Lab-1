@@ -28,9 +28,14 @@ public abstract class Cars implements Movable {
      */
     private final String modelName; // The car model name
 
-    public int xCor;
+    private int xCor;
 
-    public int yCor;
+    private int yCor;
+
+    private double dx;
+
+    private double dy;
+
 
     /**
      * Instantiates a new Car.
@@ -49,12 +54,15 @@ public abstract class Cars implements Movable {
         this.modelName = modelName;
         this.xCor = xCor;
         this.yCor = yCor;
+        this.dx = currentSpeed;
+        this.dy = currentSpeed;
     }
 
     /**
      * Moves the car one step.
      */
 
+    @Override
     public void move() {
 
     }
@@ -91,7 +99,7 @@ public abstract class Cars implements Movable {
      *
      * @param currentSpeed set speed
      */
-    public void setCurrentSpeed(double currentSpeed) {
+    protected void setCurrentSpeed(double currentSpeed) {
         this.currentSpeed = currentSpeed;
     }
 
@@ -137,7 +145,9 @@ public abstract class Cars implements Movable {
     }
 
     @Override
-    public void turnLeft() {}
+    public void turnLeft() {
+        
+    }
 
     @Override
     public void turnRight() {
