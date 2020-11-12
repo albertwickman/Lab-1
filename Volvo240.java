@@ -1,32 +1,65 @@
 import java.awt.*;
 
+/**
+ * Class for Volvo 240. Extends Cars.
+ */
 public abstract class Volvo240 extends Cars{
+    /**
+     *  Final private trim factor
+     */
+    private final static double trimFactor = 1.25;
 
-    public final static double trimFactor = 1.25;
-
+    /**
+     * Instantiates a new Volvo 240.
+     */
     public Volvo240(){
         super(4, 100, 0, Color.black, "Volvo240");
         stopEngine();
     }
-    
-    public double speedFactor(){
+
+    /**
+     * Gets the speed factor.
+     *
+     * @return speed factor
+     */
+    private double speedFactor(){
         return enginePower * 0.01 * trimFactor;
     }
 
-    public void incrementSpeed(double amount){
+    /**
+     * Increment speed.
+     *
+     * @param amount the amount
+     */
+    private void incrementSpeed(double amount){
 	    currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount,enginePower);
     }
 
-    public void decrementSpeed(double amount){
+    /**
+     * Decrement speed.
+     *
+     * @param amount the amount
+     */
+    private void decrementSpeed(double amount){
         currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount,0);
     }
 
-    // TODO fix this method according to lab pm
+    /**
+     * Accelerate.
+     *
+     * @param amount accelerate by amount
+     */
+// TODO fix this method according to lab pm
     public void gas(double amount){
         incrementSpeed(amount);
     }
 
-    // TODO fix this method according to lab pm
+    /**
+     * Brake.
+     *
+     * @param amount decelerate by amount
+     */
+// TODO fix this method according to lab pm
     public void brake(double amount){
         decrementSpeed(amount);
     }
