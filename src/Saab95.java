@@ -43,7 +43,7 @@ public class Saab95 extends Cars{
     private double speedFactor(){
         double turbo = 1;
         if(turboOn) turbo = 1.3;
-        return enginePower * 0.01 * turbo;
+        return getEnginePower() * 0.01 * turbo;
     }
 
     /**
@@ -52,7 +52,7 @@ public class Saab95 extends Cars{
      * @param amount amount of acceleration
      */
     private void incrementSpeed(double amount){
-        currentSpeed = getCurrentSpeed() + speedFactor() * amount;
+        setCurrentSpeed(getCurrentSpeed() + speedFactor() * amount);
     }
 
     /**
@@ -61,7 +61,7 @@ public class Saab95 extends Cars{
      * @param amount amount of deceleration
      */
     private void decrementSpeed(double amount){
-        currentSpeed = getCurrentSpeed() - speedFactor() * amount;
+        setCurrentSpeed(getCurrentSpeed() - speedFactor() * amount);
     }
 
     /**
