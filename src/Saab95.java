@@ -1,20 +1,22 @@
+package src;
+
 import java.awt.*;
 
 /**
- * Class for car Saab95. Extends Cars.
+ * Class for car src.Saab95. Extends src.Cars.
  */
-public abstract class Saab95 extends Cars{
+public class Saab95 extends Cars{
 
     /**
      * Status of the turbo.
      */
-    public boolean turboOn;
+    private boolean turboOn;
 
     /**
      * Instantiates a new Saab 95. Turbo is off on default.
      */
     public Saab95(){
-        super(2, 125, 0, Color.red, "Saab95");
+        super(2, 125, 0, Color.red, "src.Saab95");
 	    turboOn = false;
         stopEngine();
     }
@@ -38,7 +40,7 @@ public abstract class Saab95 extends Cars{
      *
      * @return speed factor
      */
-    public double speedFactor(){
+    private double speedFactor(){
         double turbo = 1;
         if(turboOn) turbo = 1.3;
         return enginePower * 0.01 * turbo;
@@ -49,7 +51,7 @@ public abstract class Saab95 extends Cars{
      *
      * @param amount amount of acceleration
      */
-    public void incrementSpeed(double amount){
+    private void incrementSpeed(double amount){
         currentSpeed = getCurrentSpeed() + speedFactor() * amount;
     }
 
@@ -58,7 +60,7 @@ public abstract class Saab95 extends Cars{
      *
      * @param amount amount of deceleration
      */
-    public void decrementSpeed(double amount){
+    private void decrementSpeed(double amount){
         currentSpeed = getCurrentSpeed() - speedFactor() * amount;
     }
 

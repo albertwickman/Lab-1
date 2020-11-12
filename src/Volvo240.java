@@ -1,9 +1,11 @@
+package src;
+
 import java.awt.*;
 
 /**
- * Class for Volvo 240. Extends Cars.
+ * Class for Volvo 240. Extends src.Cars.
  */
-public abstract class Volvo240 extends Cars{
+public class Volvo240 extends Cars{
     /**
      *  Final private trim factor
      */
@@ -13,7 +15,7 @@ public abstract class Volvo240 extends Cars{
      * Instantiates a new Volvo 240.
      */
     public Volvo240(){
-        super(4, 100, 0, Color.black, "Volvo240");
+        super(4, 100, 0, Color.black, "src.Volvo240");
         stopEngine();
     }
 

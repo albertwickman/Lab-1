@@ -1,7 +1,9 @@
+package src;
+
 import java.awt.*;
 
 /**
- * Abstract class for Cars
+ * Abstract class for src.Cars
  */
 public abstract class Cars implements Movable {
     /**
