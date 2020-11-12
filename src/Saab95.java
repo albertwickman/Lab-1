@@ -83,14 +83,5 @@ public class Saab95 extends Cars{
         decrementSpeed(amount);
     }
 
-    @Override
-    public void turnLeft() {
-
-    }
-
-    @Override
-    public void turnRight() {
-
-    }
 }
 

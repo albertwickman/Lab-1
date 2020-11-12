@@ -125,4 +125,12 @@ public abstract class Cars implements Movable {
     public void stopEngine(){
         currentSpeed = 0;
     }
+
+    @Override
+    public void turnLeft() {}
+
+    @Override
+    public void turnRight() {
+
+    }
 }
