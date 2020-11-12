@@ -16,7 +16,6 @@ public class Volvo240 extends Cars{
      */
     public Volvo240(int xCor, int yCor){
         super(4, 100, 0, Color.black, "src.Volvo240", xCor, yCor);
-        stopEngine();
     }
 
     /**

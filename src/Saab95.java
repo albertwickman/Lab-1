@@ -18,7 +18,6 @@ public class Saab95 extends Cars{
     public Saab95(int xCor, int yCor){
         super(2, 125, 0, Color.red, "src.Saab95", xCor, yCor);
 	    turboOn = false;
-        stopEngine();
     }
 
     /**
