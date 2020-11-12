@@ -28,9 +28,9 @@ public abstract class Cars implements Movable {
      */
     private final String modelName; // The car model name
 
-    private int xCor;
+    private double xCor;
 
-    private int yCor;
+    private double yCor;
 
     private double dx;
 
@@ -66,7 +66,8 @@ public abstract class Cars implements Movable {
 
     @Override
     public void move() {
-
+        xCor = dx;
+        yCor = dy;
     }
 
     /**
