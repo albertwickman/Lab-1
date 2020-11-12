@@ -100,7 +100,8 @@ public abstract class Cars implements Movable {
      * @param currentSpeed set speed
      */
     protected void setCurrentSpeed(double currentSpeed) {
-        this.currentSpeed = currentSpeed;
+        if(0 <= currentSpeed && currentSpeed <= getEnginePower())
+            this.currentSpeed = currentSpeed;
     }
 
     /**
@@ -134,14 +135,14 @@ public abstract class Cars implements Movable {
      * Starts engine.
      */
     public void startEngine(){
-        currentSpeed = 0.1;
+        setCurrentSpeed(0.1);
     }
 
     /**
      * Stops engine.
      */
     public void stopEngine(){
-        currentSpeed = 0;
+        setCurrentSpeed(0);
     }
 
     @Override
