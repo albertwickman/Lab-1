@@ -46,7 +46,9 @@ public abstract class Cars implements Movable {
      * @param color        the color
      * @param modelName    the model name
      */
-    public Cars(int nrDoors, double enginePower, double currentSpeed, Color color, String modelName, int xCor, int yCor) {
+    public Cars(int nrDoors, double enginePower, double currentSpeed, Color color,
+                String modelName, int xCor, int yCor) {
+
         this.nrDoors = nrDoors;
         this.enginePower = enginePower;
         this.currentSpeed = currentSpeed;
@@ -72,27 +74,21 @@ public abstract class Cars implements Movable {
      *
      * @return the nr doors
      */
-    public int getNrDoors() {
-        return nrDoors;
-    }
+    public int getNrDoors() { return nrDoors; }
 
     /**
      * Gets engine power.
      *
      * @return the engine power
      */
-    public double getEnginePower() {
-        return enginePower;
-    }
+    public double getEnginePower() { return enginePower; }
 
     /**
      * Gets current speed.
      *
      * @return the current speed
      */
-    public double getCurrentSpeed() {
-        return currentSpeed;
-    }
+    public double getCurrentSpeed() { return currentSpeed; }
 
     /**
      *  Sets current speed.
@@ -109,41 +105,31 @@ public abstract class Cars implements Movable {
      *
      * @return the color
      */
-    public Color getColor() {
-        return color;
-    }
+    public Color getColor() { return color; }
 
     /**
      * Sets color.
      *
      * @param color the color
      */
-    public void setColor(Color color) {
-        this.color = color;
-    }
+    public void setColor(Color color) { this.color = color; }
 
     /**
      * Gets model name.
      *
      * @return the model name
      */
-    public String getModelName() {
-        return modelName;
-    }
+    public String getModelName() { return modelName; }
 
     /**
      * Starts engine.
      */
-    public void startEngine(){
-        setCurrentSpeed(0.1);
-    }
+    public void startEngine(){ setCurrentSpeed(0.1); }
 
     /**
      * Stops engine.
      */
-    public void stopEngine(){
-        setCurrentSpeed(0);
-    }
+    public void stopEngine(){ setCurrentSpeed(0); }
 
     @Override
     public void turnLeft() {
