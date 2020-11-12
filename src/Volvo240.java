@@ -1,7 +1,9 @@
+package src;
+
 import java.awt.*;
 
 /**
- * Class for Volvo 240. Extends Cars.
+ * Class for Volvo 240. Extends src.Cars.
  */
 public class Volvo240 extends Cars{
     /**
@@ -12,9 +14,8 @@ public class Volvo240 extends Cars{
     /**
      * Instantiates a new Volvo 240.
      */
-    public Volvo240(){
-        super(4, 100, 0, Color.black, "Volvo240");
-        stopEngine();
+    public Volvo240(int xCor, int yCor){
+        super(4, 100, 0, Color.black, "src.Volvo240", xCor, yCor);
     }
 
     /**
@@ -23,7 +24,7 @@ public class Volvo240 extends Cars{
      * @return speed factor
      */
     private double speedFactor(){
-        return enginePower * 0.01 * trimFactor;
+        return getEnginePower() * 0.01 * trimFactor;
     }
 
     /**
@@ -32,7 +33,7 @@ public class Volvo240 extends Cars{
      * @param amount the amount
      */
     private void incrementSpeed(double amount){
-	    currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount,enginePower);
+	    setCurrentSpeed(Math.min(getCurrentSpeed() + speedFactor() * amount,getEnginePower()));
     }
 
     /**
@@ -41,7 +42,7 @@ public class Volvo240 extends Cars{
      * @param amount the amount
      */
     private void decrementSpeed(double amount){
-        currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount,0);
+        setCurrentSpeed(Math.max(getCurrentSpeed() - speedFactor() * amount,0));
     }
 
     /**
@@ -63,4 +64,5 @@ public class Volvo240 extends Cars{
     public void brake(double amount){
         decrementSpeed(amount);
     }
+
 }

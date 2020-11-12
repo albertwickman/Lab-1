@@ -25,10 +25,6 @@ public abstract class Cars implements Movable {
      */
     public String modelName; // The car model name
 
-    public int xCoord;
-
-    public int yCoord;
-
     /**
      * Instantiates a new Car.
      *
@@ -51,12 +47,7 @@ public abstract class Cars implements Movable {
      */
     @Override
     public void move() {
-    }
 
-    void turnLeft() {
-    }
-
-    void turnRight() {
     }
 
     /**
