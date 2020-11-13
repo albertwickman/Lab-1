@@ -4,6 +4,7 @@ import src.Saab95;
 import static org.junit.Assert.*;
 
 public class TestSaab95 {
+
     @Test
     public void twoDoors() {
         assertEquals(0, Double.compare(2.0, new Saab95(0, 0).getNrDoors()));

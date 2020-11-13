@@ -1,5 +1,4 @@
 import org.junit.Test;
-import src.Cars;
 import src.Saab95;
 
 import java.awt.*;
