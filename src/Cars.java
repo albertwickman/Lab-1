@@ -76,6 +76,10 @@ public abstract class Cars implements Movable {
      */
     public int getNrDoors() { return nrDoors; }
 
+    public double getXcor() { return xCor; }
+
+    public double getyCor() { return yCor; }
+
     /**
      * Gets engine power.
      *

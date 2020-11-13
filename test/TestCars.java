@@ -9,6 +9,29 @@ import static org.junit.Assert.*;
 public class TestCars {
 
     @Test
+    public void testMove() {
+        Saab95 saab = new Saab95(50, 50);
+        saab.setDx(5);
+        saab.setDy(5);
+        saab.move();
+        //assertEquals(0, Double.compare(saab.getxCor));
+    }
+
+    @Test
+    public void testSetDy() {
+        Saab95 saab = new Saab95(50, 50);
+        saab.setDy(1);
+        assertEquals(0, Double.compare(1, saab.getDy()));
+    }
+
+    @Test
+    public void testSetDx() {
+        Saab95 saab = new Saab95(50, 50);
+        saab.setDx(1);
+        assertEquals(0, Double.compare(1, saab.getDx()));
+    }
+
+    @Test
     public void testTurnLeft() {
         Saab95 saab = new Saab95(50, 50);
         saab.startEngine();
