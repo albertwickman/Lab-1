@@ -152,6 +152,7 @@ public abstract class Cars implements Movable {
         }
     }
 
+
     @Override
     public void turnRight() {
         if(dx < 0) {
