@@ -15,7 +15,7 @@ public class Volvo240 extends Cars{
      * Instantiates a new Volvo 240.
      */
     public Volvo240(int xCor, int yCor){
-        super(4, 100, 0, Color.black, "src.Volvo240", xCor, yCor);
+        super(4, 100, 0, Color.black, "Volvo240", xCor, yCor);
     }
 
     /**
