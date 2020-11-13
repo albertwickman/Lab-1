@@ -1,36 +1,37 @@
+package src;
+
 import java.awt.*;
 
 /**
- * Class for car Saab95. Extends Cars.
+ * Class for car src.Saab95. Extends src.Cars.
  */
-public abstract class Saab95 extends Cars{
+public class Saab95 extends Cars{
 
     /**
      * Status of the turbo.
      */
-    public boolean turboOn;
+    private boolean turboOn;
 
     /**
      * Instantiates a new Saab 95. Turbo is off on default.
      */
-    public Saab95(){
-        super(2, 125, 0, Color.red, "Saab95");
-	    turboOn = false;
-        stopEngine();
+    public Saab95(int xCor, int yCor){
+        super(2, 125, 0, Color.red, "src.Saab95", xCor, yCor);
+        turboOn = false;
     }
 
     /**
      * Set turbo on.
      */
     public void setTurboOn(){
-	    turboOn = true;
+        turboOn = true;
     }
 
     /**
      * Set turbo off.
      */
     public void setTurboOff(){
-	    turboOn = false;
+        turboOn = false;
     }
 
     /**
@@ -46,10 +47,10 @@ public abstract class Saab95 extends Cars{
      *
      * @return speed factor
      */
-    public double speedFactor(){
+    private double speedFactor(){
         double turbo = 1;
         if(turboOn) turbo = 1.3;
-        return enginePower * 0.01 * turbo;
+        return getEnginePower() * 0.01 * turbo;
     }
 
     /**
@@ -57,8 +58,8 @@ public abstract class Saab95 extends Cars{
      *
      * @param amount amount of acceleration
      */
-    public void incrementSpeed(double amount){
-        currentSpeed = getCurrentSpeed() + speedFactor() * amount;
+    private void incrementSpeed(double amount){
+        setCurrentSpeed(getCurrentSpeed() + speedFactor() * amount);
     }
 
     /**
@@ -66,8 +67,8 @@ public abstract class Saab95 extends Cars{
      *
      * @param amount amount of deceleration
      */
-    public void decrementSpeed(double amount){
-        currentSpeed = getCurrentSpeed() - speedFactor() * amount;
+    private void decrementSpeed(double amount){
+        setCurrentSpeed(getCurrentSpeed() - speedFactor() * amount);
     }
 
     /**
@@ -79,6 +80,8 @@ public abstract class Saab95 extends Cars{
     public void gas(double amount){
         if (0 <= amount && amount <= 1)
             incrementSpeed(amount);
+
+
     }
 
     /**
@@ -91,5 +94,5 @@ public abstract class Saab95 extends Cars{
         if (0 <= amount && amount <= 1)
             decrementSpeed(amount);
     }
-}
 
+}
