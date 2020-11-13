@@ -66,8 +66,8 @@ public abstract class Cars implements Movable {
 
     @Override
     public void move() {
-        xCor = dx;
-        yCor = dy;
+        xCor += dx;
+        yCor += dy;
     }
 
     /**
