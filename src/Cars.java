@@ -36,7 +36,6 @@ public abstract class Cars implements Movable {
 
     private double dy;
 
-
     /**
      * Instantiates a new Car.
      *
@@ -122,6 +121,22 @@ public abstract class Cars implements Movable {
      */
     public String getModelName() { return modelName; }
 
+    public double getDx() {
+        return dx;
+    }
+
+    public double getDy() {
+        return dy;
+    }
+
+    public void setDx(double dx) {
+        this.dx = dx;
+    }
+
+    public void setDy(double dy) {
+        this.dy = dy;
+    }
+
     /**
      * Starts engine.
      */
@@ -134,19 +149,19 @@ public abstract class Cars implements Movable {
 
     @Override
     public void turnLeft() {
-        if(dx < 0) {
+        if(dx < 0) {                    // if movement along the x-axis is negative, set x-movement to 0 and y-movement to the current speed
             dx = 0;
             dy = getCurrentSpeed();
         }
-        else if(dx > 0) {
+        else if(dx > 0) {         // same but the opposite, x-movement is still 0
             dx = 0;
             dy = -getCurrentSpeed();
         }
-        else if (dy < 0) {
+        else if (dy < 0) {                 // if movement along the y-axis is negative, set y-movement to 0 and x-movement to the negative current speed
             dx = -getCurrentSpeed();
             dy = 0;
         }
-        else if(dy > 0) {
+        else if(dy > 0) {                   // same but the opposite, y-movement is still 0
             dx = getCurrentSpeed();
             dy = 0;
         }
@@ -154,20 +169,20 @@ public abstract class Cars implements Movable {
 
 
     @Override
-    public void turnRight() {
+    public void turnRight() {           // if movement along the x-axis is negative, set x-movement to 0 and y-movement to the negative current speed
         if(dx < 0) {
             dx = 0;
             dy = -getCurrentSpeed();
         }
-        else if(dx > 0) {
+        else if(dx > 0) {               // same but opposite, x-movement is still 0
             dx = 0;
             dy = getCurrentSpeed();
         }
-        else if (dy < 0) {
+        else if (dy < 0) {              // if movement along the y-axis is negative, set y-movement to 0 and x-movement to the current speed
             dx = getCurrentSpeed();
             dy = 0;
         }
-        else if(dy > 0) {
+        else if(dy > 0) {               // same but opposite, y-movement is still 0
             dx = -getCurrentSpeed();
             dy = 0;
         }

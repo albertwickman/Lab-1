@@ -17,21 +17,21 @@ public class Saab95 extends Cars{
      */
     public Saab95(int xCor, int yCor){
         super(2, 125, 0, Color.red, "src.Saab95", xCor, yCor);
-	    turboOn = false;
+        turboOn = false;
     }
 
     /**
      * Set turbo on.
      */
     public void setTurboOn(){
-	    turboOn = true;
+        turboOn = true;
     }
 
     /**
      * Set turbo off.
      */
     public void setTurboOff(){
-	    turboOn = false;
+        turboOn = false;
     }
 
     /**
@@ -79,6 +79,8 @@ public class Saab95 extends Cars{
     public void gas(double amount){
         if (0 <= amount && amount <= 1)
             incrementSpeed(amount);
+
+
     }
 
     /**
@@ -92,4 +94,3 @@ public class Saab95 extends Cars{
     }
 
 }
-
