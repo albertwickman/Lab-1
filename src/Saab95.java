@@ -81,6 +81,8 @@ public class Saab95 extends Cars{
             incrementSpeed(amount);
         if (getDx() == 0)
             setDy(getCurrentSpeed());
+        else
+            setDx(getCurrentSpeed());
     }
 
     /**
@@ -93,6 +95,8 @@ public class Saab95 extends Cars{
             decrementSpeed(amount);
         if (getDx() == 0)
             setDy(-getCurrentSpeed());
+        else
+            setDx(getCurrentSpeed());
     }
 
 }
