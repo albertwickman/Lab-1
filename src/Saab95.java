@@ -79,8 +79,8 @@ public class Saab95 extends Cars{
     public void gas(double amount){
         if (0 <= amount && amount <= 1)
             incrementSpeed(amount);
-
-
+        if (getDx() == 0)
+            setDy(getCurrentSpeed());
     }
 
     /**
@@ -91,6 +91,8 @@ public class Saab95 extends Cars{
     public void brake(double amount){
         if (0 <= amount && amount <= 1)
             decrementSpeed(amount);
+        if (getDx() == 0)
+            setDy(-getCurrentSpeed());
     }
 
 }
