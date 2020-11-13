@@ -12,9 +12,9 @@ public class TestCars {
     public void testMove() {
         Saab95 saab = new Saab95(50, 50);
         saab.setDx(5);
-        saab.setDy(5);
+        saab.setDy(10);
         saab.move();
-        //assertEquals(0, Double.compare(saab.getxCor));
+        assertEquals(0, Double.compare(saab.getXcor(), saab.getyCor()-5));
     }
 
     @Test
