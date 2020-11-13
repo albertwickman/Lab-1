@@ -38,6 +38,10 @@ public class TestCars {
         saab.gas(0.5);
         saab.setDx(1);
         saab.turnLeft();
+        saab.turnLeft();
+        saab.turnLeft();
+        saab.turnLeft();
+        saab.turnLeft();
         assertEquals(0, Double.compare(saab.getDy(), -saab.getCurrentSpeed()));
     }
 
@@ -47,6 +51,10 @@ public class TestCars {
         saab.startEngine();
         saab.gas(0.5);
         saab.setDy(-1);
+        saab.turnRight();
+        saab.turnRight();
+        saab.turnRight();
+        saab.turnRight();
         saab.turnRight();
         assertEquals(0, Double.compare(saab.getDx(), saab.getCurrentSpeed()));
     }
