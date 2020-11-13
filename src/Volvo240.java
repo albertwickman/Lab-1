@@ -57,6 +57,8 @@ public class Volvo240 extends Cars{
             incrementSpeed(amount);
         if (getDx() == 0)
             setDy(getCurrentSpeed());
+        else
+            setDx(getCurrentSpeed());
     }
 
     /**
@@ -69,6 +71,8 @@ public class Volvo240 extends Cars{
             decrementSpeed(amount);
         if (getDx() == 0)
             setDy(-getCurrentSpeed());
+        else
+            setDx(-getCurrentSpeed());
     }
 
 }
