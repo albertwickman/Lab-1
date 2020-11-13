@@ -7,6 +7,27 @@ import java.awt.*;
 import static org.junit.Assert.*;
 
 public class TestCars {
+
+    @Test
+    public void testTurnLeft() {
+        Saab95 saab = new Saab95(50, 50);
+        saab.startEngine();
+        saab.gas(0.5);
+        saab.setDx(1);
+        saab.turnLeft();
+        assertEquals(0, Double.compare(saab.getDy(), -saab.getCurrentSpeed()));
+    }
+
+    @Test
+    public void testTurnRight() {
+        Saab95 saab = new Saab95(50, 50);
+        saab.startEngine();
+        saab.gas(0.5);
+        saab.setDy(-1);
+        saab.turnRight();
+        assertEquals(0, Double.compare(saab.getDx(), saab.getCurrentSpeed()));
+    }
+
     @Test
     public void modelName() {
         Saab95 saab = new Saab95(0,0);
