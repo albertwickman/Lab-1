@@ -24,6 +24,7 @@ public class TestVolvo240 {
     @Test
     public void testGas() {
         testCar.gas(0.5);
+        testCar.turnLeft();
         testCar.gas(0.5);
         assertEquals(0, Double.compare(testCar.getCurrentSpeed(), 1.25));
     }
@@ -31,6 +32,14 @@ public class TestVolvo240 {
     @Test
     public void testBrake() {
         testCar.gas(0.5);
+        testCar.brake(0.25);
+        assertEquals(0, Double.compare(testCar.getCurrentSpeed(), 0.3125));
+    }
+
+    @Test
+    public void testBrakeDifferentDirection() {
+        testCar.gas(0.5);
+        testCar.turnLeft();
         testCar.brake(0.25);
         assertEquals(0, Double.compare(testCar.getCurrentSpeed(), 0.3125));
     }

@@ -4,6 +4,7 @@ import src.Saab95;
 import static org.junit.Assert.*;
 
 public class TestSaab95 {
+
     @Test
     public void twoDoors() {
         assertEquals(0, Double.compare(2.0, new Saab95(0, 0).getNrDoors()));
@@ -41,6 +42,24 @@ public class TestSaab95 {
     public void brakeTest() {
         Saab95 saab = new Saab95(0,0);
         saab.gas(0.5);
+        saab.brake(0.25);
+        assertEquals(0, Double.compare(saab.getCurrentSpeed(), 0.3125));
+    }
+
+    @Test
+    public void  dx() {
+        Saab95 saab = new Saab95(0,0);
+        saab.gas(0.5);
+        saab.turnLeft();
+        saab.gas(0.5);
+        assertEquals(0, Double.compare(saab.getCurrentSpeed(), 1.25));
+    }
+
+    @Test
+    public void  dy() {
+        Saab95 saab = new Saab95(0,0);
+        saab.gas(0.5);
+        saab.turnLeft();
         saab.brake(0.25);
         assertEquals(0, Double.compare(saab.getCurrentSpeed(), 0.3125));
     }

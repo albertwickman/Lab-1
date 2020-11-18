@@ -170,8 +170,7 @@ public abstract class Cars implements Movable {
             dy = 0;
         }
     }
-
-
+    
     @Override
     public void turnRight() {           // if movement along the x-axis is negative, set x-movement to 0 and y-movement to the negative current speed
         if(dx < 0) {

@@ -1,5 +1,4 @@
 import org.junit.Test;
-import src.Cars;
 import src.Saab95;
 
 import java.awt.*;
@@ -62,7 +61,7 @@ public class TestCars {
     @Test
     public void modelName() {
         Saab95 saab = new Saab95(0,0);
-        assertEquals("src.Saab95", saab.getModelName());
+        assertEquals("Saab95", saab.getModelName());
     }
 
     @Test
