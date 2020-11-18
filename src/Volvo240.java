@@ -46,7 +46,6 @@ public class Volvo240 extends Cars{
     }
 
 
-
     /**
      * Accelerate.
      *
