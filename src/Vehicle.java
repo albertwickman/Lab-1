@@ -5,7 +5,7 @@ import java.awt.*;
 /**
  * Abstract class for src.Cars
  */
-public abstract class Cars implements Movable {
+public abstract class Vehicle implements Movable {
     /**
      * The Nr doors.
      */
@@ -45,7 +45,7 @@ public abstract class Cars implements Movable {
      * @param color        the color
      * @param modelName    the model name
      */
-    public Cars(int nrDoors, double enginePower, double currentSpeed, Color color,
+    public Vehicle(int nrDoors, double enginePower, double currentSpeed, Color color,
                 String modelName, int xCor, int yCor) {
 
         this.nrDoors = nrDoors;
