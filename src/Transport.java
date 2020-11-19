@@ -2,7 +2,7 @@ package src;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Transport extends Trailer {
+public class Transport implements Trailer {
     private final Scania truck;
     private final Cars[] cars;
 

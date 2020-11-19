@@ -22,11 +22,18 @@ public class Scania extends Vehicle {
 
     }
 
-    public void convertToTransport(int maxCars) {
+    /**
+     * Connect a trailer with car transport capabilities to the truck.
+     * @param maxCars Maximum capacity of the trailer
+     */
+    public void connectTransport(int maxCars) {
         trailer = new Transport(this, maxCars);
     }
 
-    public void convertToPlatform() {
+    /**
+     *  Connect a trailer with a platform to the truck.
+     */
+    public void connectPlatform() {
         trailer = new Platform(this);
     }
 
