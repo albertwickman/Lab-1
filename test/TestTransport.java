@@ -13,7 +13,7 @@ public class TestTransport {
     public void isTransport(){
         Scania s = new Scania(2, 400, 0, Color.red, "BigAssTruck", 0,0);
         s.connectTransport(6);
-        assertTrue();
+        //assertTrue();
     }
 
     @Test
@@ -21,9 +21,15 @@ public class TestTransport {
         Scania s = new Scania(2, 400, 0, Color.red, "BigAssTruck", 0,0);
         s.connectTransport(6);
         Saab95 saab = new Saab95(0,0);
+        s.lowerRamp();
         s.loadCar(saab);
         Cars[] c = s.getLoadedCars();
         System.out.println(Arrays.toString(c));
         assertEquals(saab, c[0]);
+    }
+
+    @Test
+    public void unloadCar() {
+
     }
 }
