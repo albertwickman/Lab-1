@@ -8,19 +8,25 @@ public class Platform {
 
     /**
      * Creates an instance of platform.
-     * @param truck
+     * @param truck Truck to which the platform is connected to
      */
     public Platform (Scania truck) {
         this.angle = 0;
         this.truck = truck;
-
+        truck.setRaised(false);
     }
 
+    /**
+     * Sets the angle of the platform
+     * @param angle Angle
+     */
     public void setAngle(int angle) {
         if (MIN_ANGLE <= angle && angle <= MAX_ANGLE) {
             this.angle = angle;
             if (angle != MIN_ANGLE)
                 truck.setRaised(true);
+            else
+                truck.setRaised(false);
         }
     }
 }
