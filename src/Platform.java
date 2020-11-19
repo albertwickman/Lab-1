@@ -1,6 +1,6 @@
 package src;
 
-public class Platform implements Trailer{
+public class Platform extends Trailer{
     private int angle;
     private final Scania truck;
     private final int MIN_ANGLE = 0;
