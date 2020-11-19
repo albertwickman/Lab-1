@@ -19,8 +19,13 @@ public class Scania extends Vehicle {
         super(nrDoors, enginePower, currentSpeed, color, modelName, xCor, yCor);
     }
 
+    /**
+     * Determines whether movement is restricted due to the platform/ramp.
+     * @param movementAllowed Enable movement
+     */
     public void setMovementAllowed(boolean movementAllowed) {
-        this.movementAllowed = movementAllowed;
+        if (getCurrentSpeed() == 0)
+            this.movementAllowed = movementAllowed;
     }
 
     public boolean isMovementAllowed() {
