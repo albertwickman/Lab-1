@@ -28,6 +28,11 @@ public class Transport extends Trailer {
         }
     }
 
+    public void updateCarCoor() {
+        for (Cars c : cars)
+
+    }
+
     public void raiseRamp() {
         truck.setRaised(true);
     }

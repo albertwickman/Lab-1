@@ -5,6 +5,7 @@ import java.awt.*;
 public class Scania extends Vehicle {
     private boolean raised;
     private Trailer trailer;
+
     /**
      * Instantiates a new Car.
      *
@@ -38,11 +39,12 @@ public class Scania extends Vehicle {
         return raised;
     }
 
-    public void movable(){
-        if (setRaised()) {
-            setCurrentSpeed(getCurrentSpeed());
+    @Override
+    public void move() {
+        if (!isRaised()) {
+            super.move();
+            if (trailer instanceof Transport)
+                ((Transport) trailer).updateCarCoor();
         }
     }
-
-    public void
 }
