@@ -80,6 +80,14 @@ public abstract class Vehicle implements Movable {
 
     public double getyCor() { return yCor; }
 
+    public void setxCor(double xCor) {
+        this.xCor = xCor;
+    }
+
+    public void setyCor(double yCor) {
+        this.yCor = yCor;
+    }
+
     /**
      * Gets engine power.
      *
