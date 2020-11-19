@@ -17,7 +17,6 @@ public class TestTransport {
         s.lowerRamp();
         s.loadCar(saab);
         Cars[] c = s.getLoadedCars();
-        System.out.println(Arrays.toString(c));
         assertEquals(saab, c[0]);
     }
 
@@ -30,7 +29,6 @@ public class TestTransport {
         s.loadCar(saab);
         s.unloadCar();
         Cars[] c = s.getLoadedCars();
-        System.out.println(Arrays.toString(c));
         assertNull(c[1]);
     }
 

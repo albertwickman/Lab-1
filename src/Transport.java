@@ -1,6 +1,4 @@
 package src;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Transport implements Trailer {
     private final Scania truck;
@@ -13,7 +11,7 @@ public class Transport implements Trailer {
      */
     public Transport (Scania truck, int maxCars) {
         this.truck = truck;
-        truck.setRaised(false);
+        truck.setMovementAllowed(false);
         cars = new Cars[maxCars];
     }
 
@@ -22,7 +20,7 @@ public class Transport implements Trailer {
      * @param c Car to load
      */
     public void loadCar(Cars c) {
-        if (truck.isRaised() && indexEmpty(cars) != -1) {
+        if (truck.isMovementAllowed() && indexEmpty(cars) != -1) {
             cars[indexEmpty(cars)] = c;
             c.setxCor(truck.getXcor());
             c.setyCor(truck.getyCor());
@@ -48,7 +46,7 @@ public class Transport implements Trailer {
      */
     public void unloadCar() {
         int index = indexLastCar(cars);
-        if(index != -1 && truck.isRaised()) {
+        if(index != -1 && truck.isMovementAllowed()) {
             Cars c = cars[index];
             cars[index] = null;
             c.setyCor(c.getyCor() + 5);
@@ -75,13 +73,13 @@ public class Transport implements Trailer {
      * Raise the ramp. Enables movement of the truck.
      */
     public void raiseRamp() {
-        truck.setRaised(false);
+        truck.setMovementAllowed(false);
     }
 
     /**
      * Lower the ramp. Disables movement of the truck.
      */
     public void lowerRamp() {
-        truck.setRaised(true);
+        truck.setMovementAllowed(true);
     }
 }

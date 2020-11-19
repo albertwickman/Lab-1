@@ -3,7 +3,7 @@ package src;
 import java.awt.*;
 
 public class Scania extends Vehicle {
-    private boolean raised;
+    private boolean movementAllowed;
     public Trailer trailer;
 
     /**
@@ -19,17 +19,22 @@ public class Scania extends Vehicle {
         super(nrDoors, enginePower, currentSpeed, color, modelName, xCor, yCor);
     }
 
-    public void setRaised(boolean raised) {
-        this.raised = raised;
+    /**
+     * Determines whether movement is restricted due to the platform/ramp.
+     * @param movementAllowed Enable movement
+     */
+    public void setMovementAllowed(boolean movementAllowed) {
+        if (getCurrentSpeed() == 0)
+            this.movementAllowed = movementAllowed;
     }
 
-    public boolean isRaised() {
-        return raised;
+    public boolean isMovementAllowed() {
+        return movementAllowed;
     }
 
     @Override
     public void move() {
-        if (!isRaised()) {
+        if (!isMovementAllowed()) {
             super.move();
             if (trailer instanceof Transport)
                 ((Transport) trailer).updateCarCoor();
