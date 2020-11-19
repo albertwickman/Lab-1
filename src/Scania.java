@@ -15,11 +15,10 @@ public class Scania extends Vehicle {
      * @param color        the color
      * @param modelName    the model name
      */
-    private Trailer trailer;
 
-    public Scania(int nrDoors, double enginePower, double currentSpeed, Color color, String modelName, int xCor, int yCor, Trailer trailer) {
+    public Scania(int nrDoors, double enginePower, double currentSpeed, Color color, String modelName, int xCor, int yCor) {
         super(nrDoors, enginePower, currentSpeed, color, modelName, xCor, yCor);
-        this.trailer = new Trailer(trailer);
+        this.trailer = new Trailer();
 
     }
 
