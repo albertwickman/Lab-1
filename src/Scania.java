@@ -18,8 +18,6 @@ public class Scania extends Vehicle {
 
     public Scania(int nrDoors, double enginePower, double currentSpeed, Color color, String modelName, int xCor, int yCor) {
         super(nrDoors, enginePower, currentSpeed, color, modelName, xCor, yCor);
-        this.trailer = new Trailer();
-
     }
 
     /**
@@ -36,6 +34,9 @@ public class Scania extends Vehicle {
     public void connectPlatform() {
         trailer = new Platform(this);
     }
+
+    public Trailer getTrailer() { return this.trailer; }
+
 
     public void setRaised(boolean raised) {
         this.raised = raised;
