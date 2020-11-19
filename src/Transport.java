@@ -2,7 +2,7 @@ package src;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Transport implements Trailer {
+public class Transport extends Trailer {
     private final Scania truck;
     private final Cars[] cars;
 
@@ -66,6 +66,9 @@ public class Transport implements Trailer {
         }
     }
 
+    public Cars[] getLoadedCars() {
+        return cars;
+    }
     /**
      * Raise the ramp. Enables movement of the truck.
      */
