@@ -4,7 +4,7 @@ public class Platform extends Trailer{
     private int angle;
     private final Scania truck;
     private final int MIN_ANGLE = 0;
-    private final int MAX_ANGLE = 0;
+    private final int MAX_ANGLE = 70;
 
     /**
      * Creates an instance of platform.
@@ -23,10 +23,7 @@ public class Platform extends Trailer{
     public void setAngle(int angle) {
         if (MIN_ANGLE <= angle && angle <= MAX_ANGLE) {
             this.angle = angle;
-            if (angle != MIN_ANGLE)
-                truck.setRaised(true);
-            else
-                truck.setRaised(false);
+            truck.setRaised(angle != MIN_ANGLE);
         }
     }
 }
