@@ -1,14 +1,22 @@
 package src;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Transport {
     private final Scania truck;
-    private boolean raised;
-    //private final List<? implements Cars>
+    private final List<Cars> cars = new ArrayList<Cars>();
+
 
     public Transport (Scania truck) {
         this.truck = truck;
-        this.raised = false;
+        truck.setRaised(false);
     }
 
-    //public
+    public void raiseRamp() {
+        truck.setRaised(true);
+    }
+
+    public void lowerRamp() {
+        truck.setRaised(false);
+    }
 }

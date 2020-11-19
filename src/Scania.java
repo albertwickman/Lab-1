@@ -3,6 +3,7 @@ package src;
 import java.awt.*;
 
 public class Scania extends Vehicle {
+    private int raised;
     /**
      * Instantiates a new Car.
      *
@@ -20,5 +21,13 @@ public class Scania extends Vehicle {
 
     }
 
-    
+    public boolean setRaised(boolean smack) {
+        return raised > 0;
+    }
+
+    public void unstationary(){
+        if (setRaised(false)) {
+            setCurrentSpeed(getCurrentSpeed());
+        }
+    }
 }
