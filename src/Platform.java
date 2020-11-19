@@ -16,6 +16,5 @@ public class Platform extends Trailer{
     }
 
     public void lowerPlatform(int angle) {
-        if (0)
     }
 }
