@@ -15,23 +15,22 @@ public class Scania extends Vehicle {
      * @param color        the color
      * @param modelName    the model name
      */
-    public Scania(int nrDoors, double enginePower, double currentSpeed, Color color, String modelName, int xCor, int yCor, Trailer trailer) {
+    public Scania(int nrDoors, double enginePower, double currentSpeed, Color color, String modelName, int xCor, int yCor) {
         super(nrDoors, enginePower, currentSpeed, color, modelName, xCor, yCor);
-        this.trailer = trailer;
     }
 
     /**
-     * Change the trailer to a transport.
+     * Connect a trailer with car transport capabilities to the truck.
      * @param maxCars Maximum capacity of the trailer
      */
-    public void convertToTransport(int maxCars) {
+    public void connectTransport(int maxCars) {
         trailer = new Transport(this, maxCars);
     }
 
     /**
-     * Change the trailer to a platform.
+     *  Connect a trailer with a platform to the truck.
      */
-    public void convertToPlatform() {
+    public void connectPlatform() {
         trailer = new Platform(this);
     }
 
