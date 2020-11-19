@@ -61,8 +61,10 @@ public class Transport implements Trailer {
      */
     public void updateCarCoor() {
         for (Cars c : cars) {
-            c.setxCor(truck.getXcor());
-            c.setyCor(truck.getyCor());
+            if(c != null) {
+                c.setxCor(truck.getXcor());
+                c.setyCor(truck.getyCor());
+            }
         }
     }
 

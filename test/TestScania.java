@@ -12,15 +12,5 @@ public class TestScania {
     Scania truck = new Scania(2, 100, 0, Color.BLACK,
             "Trucko", 10, 10);
 
-    @Test
-    public void equipTransport() {
-        truck.connectPlatform();
-        truck.connectTransport(10);
-        assertEquals(truck.getTrailer(), );
-    }
 
-    @Test
-    public void platformIsRaised() {
-        truck.connectPlatform();
-    }
 }
