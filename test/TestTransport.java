@@ -30,6 +30,15 @@ public class TestTransport {
 
     @Test
     public void unloadCar() {
-
+        Scania s = new Scania(2, 400, 0, Color.red, "BigAssTruck", 0,0);
+        s.connectTransport(6);
+        Saab95 saab = new Saab95(0,0);
+        s.lowerRamp();
+        s.loadCar(saab);
+        s.loadCar(saab);
+        s.unloadCar();
+        Cars[] c = s.getLoadedCars();
+        System.out.println(Arrays.toString(c));
+        assertNull(c[1]);
     }
 }
