@@ -3,7 +3,8 @@ package src;
 import java.awt.*;
 
 public class Scania extends Vehicle {
-    private int raised;
+    private boolean raised;
+    private Trailer trailer;
     /**
      * Instantiates a new Car.
      *
@@ -21,13 +22,27 @@ public class Scania extends Vehicle {
 
     }
 
-    public boolean setRaised(boolean smack) {
-        return raised > 0;
+    public void convertToTransport(int maxCars) {
+        trailer = new Transport(this, maxCars);
     }
 
-    public void unstationary(){
-        if (setRaised(false)) {
+    public void convertToPlatform() {
+        trailer = new Platform(this);
+    }
+
+    public void setRaised(boolean raised) {
+        this.raised = raised;
+    }
+
+    public boolean isRaised() {
+        return raised;
+    }
+
+    public void movable(){
+        if (setRaised()) {
             setCurrentSpeed(getCurrentSpeed());
         }
     }
+
+    public void
 }
