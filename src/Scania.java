@@ -2,7 +2,7 @@ package src;
 
 import java.awt.*;
 
-public class Scania extends Vehicle {
+public class Scania extends Truck {
     private boolean movementAllowed;
     public Trailer trailer;
 
