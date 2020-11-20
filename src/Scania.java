@@ -2,10 +2,7 @@ package src;
 
 import java.awt.*;
 
-public class Scania extends Truck {
-    private boolean movementAllowed;
-    public Trailer trailer;
-
+public class Scania extends Truck implements Ramp{
     /**
      * Instantiates a new Car.
      *
@@ -75,4 +72,8 @@ public class Scania extends Truck {
     }
 
 
+    @Override
+    public void setAngle() {
+
+    }
 }

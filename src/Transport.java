@@ -1,6 +1,6 @@
 package src;
 
-public class Transport extends Trailer {
+public class Transport extends Trailer implements PonÄrKåt {
     private final Car[] loadedCars;
     private final int distanceToTransport = 5;
 

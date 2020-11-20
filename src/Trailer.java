@@ -1,6 +1,6 @@
 package src;
 
-public class Trailer {
+public class Trailer implements PonÄrKåt{
     private int angle;
     private final Scania truck;
     private final int MIN_ANGLE = 0;
