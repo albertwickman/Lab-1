@@ -17,6 +17,7 @@ public class Scania extends Vehicle {
      */
     public Scania(int nrDoors, double enginePower, double currentSpeed, Color color, String modelName, int xCor, int yCor) {
         super(nrDoors, enginePower, currentSpeed, color, modelName, xCor, yCor);
+        setMovementAllowed(true);
     }
 
     /**
