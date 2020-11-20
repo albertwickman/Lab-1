@@ -18,6 +18,7 @@ public class Scania extends Vehicle {
     public Scania(int nrDoors, double enginePower, double currentSpeed, Color color, String modelName, int xCor, int yCor) {
         super(nrDoors, enginePower, currentSpeed, color, modelName, xCor, yCor);
         setMovementAllowed(true);
+        connectTrailer();
     }
 
     /**
@@ -48,7 +49,7 @@ public class Scania extends Vehicle {
      * @param maxCars Maximum capacity of the trailer
      */
     public void connectTransport(int maxCars) {
-        trailer = new Transport(this, maxCars);
+        trailer.newTransport(maxCars);
     }
 
     public void loadCar(Car c) {
@@ -56,30 +57,17 @@ public class Scania extends Vehicle {
     }
 
     public void unloadCar() {
-        if (trailer instanceof Transport)
-            ((Transport) trailer).unloadCar();
+        trailer.unloadCar();
     }
 
     public Car[] getLoadedCars() {
-        if (trailer instanceof Transport)
-            return ((Transport) trailer).getLoadedCars();
-        return null;
-    }
-
-    public void raiseRamp() {
-        if (trailer instanceof Transport)
-            ((Transport) trailer).raiseRamp();
-    }
-
-    public void lowerRamp() {
-        if (trailer instanceof Transport)
-            ((Transport) trailer).lowerRamp();
+        return trailer.getLoadedCars();
     }
     // -------------- Delegation of methods for trailer with platform --------------
     /**
      *  Connect a trailer with a platform to the truck.
      */
-    public void connectPlatform() {
+    public void connectTrailer() {
         trailer = new Trailer(this);
     }
 

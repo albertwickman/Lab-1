@@ -11,7 +11,6 @@ public class Transport extends Trailer {
      */
     public Transport (Scania truck, int maxCars) {
         super(truck);
-        truck.setMovementAllowed(false);
         loadedCars = new Car[maxCars];
     }
 
@@ -19,6 +18,7 @@ public class Transport extends Trailer {
      * Load a car to the transport.
      * @param c Car to load
      */
+    @Override
     public void loadCar(Car c) {
         if (!getTruck().isMovementAllowed() && indexEmpty(loadedCars) != -1) {
             loadedCars[indexEmpty(loadedCars)] = c;
@@ -65,21 +65,13 @@ public class Transport extends Trailer {
             }
         }
     }
-
-    public Car[] getLoadedCars() {
-        return loadedCars;
-    }
-    /**
-     * Raise the ramp. Enables movement of the truck.
-     */
-    public void raiseRamp() {
-        setAngle(getMIN_ANGLE());
+    @Override
+    public void setAngle(int angle) {
+        if (angle == getMIN_ANGLE())
+            super.setAngle(getMIN_ANGLE());
+        else
+            super.setAngle(getMAX_ANGLE());
     }
 
-    /**
-     * Lower the ramp. Disables movement of the truck.
-     */
-    public void lowerRamp() {
-        setAngle(getMAX_ANGLE());
-    }
+    public Car[] getLoadedCars() { return loadedCars; }
 }

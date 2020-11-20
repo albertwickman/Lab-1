@@ -13,7 +13,6 @@ public class TestTransport {
     public void oneCar() {
         s.connectTransport(6);
         Saab95 saab = new Saab95(0,0);
-        s.lowerRamp();
         s.loadCar(saab);
         Car[] c = s.getLoadedCars();
         assertEquals(saab, c[0]);
@@ -23,7 +22,6 @@ public class TestTransport {
     public void unloadCar() {
         s.connectTransport(6);
         Saab95 saab = new Saab95(0,0);
-        s.lowerRamp();
         s.loadCar(saab);
         s.loadCar(saab);
         s.unloadCar();
@@ -35,9 +33,7 @@ public class TestTransport {
     public void carsCoordinatesUpdatesWithTransports() {
         Volvo240 car = new Volvo240(0, 0);
         s.connectTransport(10);
-        s.lowerRamp();
         s.loadCar(car);
-        s.raiseRamp();
         s.setDx(2);
         s.move();
         assertEquals(0, Double.compare(s.getXcor(), car.getXcor()));
