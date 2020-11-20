@@ -38,8 +38,7 @@ public class Scania extends Truck {
     public void move() {
         if (isMovementAllowed()) {
             super.move();
-            if (trailer instanceof Transport)
-                ((Transport) trailer).updateCarCoor();
+            trailer.updateCoor();
         }
     }
 
