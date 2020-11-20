@@ -36,12 +36,12 @@ public class Trailer {
 
     public void unloadCar() {
         if (transport != null)
-        transport.unloadCar();
+            transport.unloadCar();
     }
 
     public void updateCoor() {
         if (transport != null)
-        transport.updateCoor();
+            transport.updateCoor();
     }
 
     public Car[] getLoadedCars() {

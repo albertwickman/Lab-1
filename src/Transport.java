@@ -65,6 +65,7 @@ public class Transport extends Trailer {
             }
         }
     }
+
     @Override
     public void setAngle(int angle) {
         if (angle == getMIN_ANGLE())

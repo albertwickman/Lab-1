@@ -63,7 +63,6 @@ public abstract class Vehicle implements Movable {
      * Moves the car one step.
      */
 
-    @Override
     public void move() {
         xCor += dx;
         yCor += dy;
