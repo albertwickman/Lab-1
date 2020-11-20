@@ -2,7 +2,7 @@ package src;
 
 public class Transport implements Trailer {
     private final Scania truck;
-    private final Cars[] cars;
+    private final Cars[] loadedCars;
 
     /**
      * Type of trailer for transporting cars, extends Trailer.
@@ -12,7 +12,7 @@ public class Transport implements Trailer {
     public Transport (Scania truck, int maxCars) {
         this.truck = truck;
         truck.setMovementAllowed(false);
-        cars = new Cars[maxCars];
+        loadedCars = new Cars[maxCars];
     }
 
     /**
@@ -20,8 +20,8 @@ public class Transport implements Trailer {
      * @param c Car to load
      */
     public void loadCar(Cars c) {
-        if (truck.isMovementAllowed() && indexEmpty(cars) != -1) {
-            cars[indexEmpty(cars)] = c;
+        if (truck.isMovementAllowed() && indexEmpty(loadedCars) != -1) {
+            loadedCars[indexEmpty(loadedCars)] = c;
             c.setxCor(truck.getXcor());
             c.setyCor(truck.getyCor());
         }
@@ -45,10 +45,10 @@ public class Transport implements Trailer {
      * Unload a car from the transport.
      */
     public void unloadCar() {
-        int index = indexLastCar(cars);
+        int index = indexLastCar(loadedCars);
         if(index != -1 && truck.isMovementAllowed()) {
-            Cars c = cars[index];
-            cars[index] = null;
+            Cars c = loadedCars[index];
+            loadedCars[index] = null;
             c.setyCor(c.getyCor() + 5);
             c.setxCor(c.getXcor() + 5);
         }
@@ -58,7 +58,7 @@ public class Transport implements Trailer {
      * Used to update all coordinates of the cars loaded on the transport.
      */
     public void updateCarCoor() {
-        for (Cars c : cars) {
+        for (Cars c : loadedCars) {
             if(c != null) {
                 c.setxCor(truck.getXcor());
                 c.setyCor(truck.getyCor());
@@ -67,7 +67,7 @@ public class Transport implements Trailer {
     }
 
     public Cars[] getLoadedCars() {
-        return cars;
+        return loadedCars;
     }
     /**
      * Raise the ramp. Enables movement of the truck.
