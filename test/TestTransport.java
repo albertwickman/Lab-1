@@ -3,7 +3,6 @@ import src.*;
 
 import static org.junit.Assert.*;
 import java.awt.*;
-import java.util.Arrays;
 
 public class TestTransport {
 
@@ -16,7 +15,7 @@ public class TestTransport {
         Saab95 saab = new Saab95(0,0);
         s.lowerRamp();
         s.loadCar(saab);
-        Cars[] c = s.getLoadedCars();
+        Car[] c = s.getLoadedCars();
         assertEquals(saab, c[0]);
     }
 
@@ -28,7 +27,7 @@ public class TestTransport {
         s.loadCar(saab);
         s.loadCar(saab);
         s.unloadCar();
-        Cars[] c = s.getLoadedCars();
+        Car[] c = s.getLoadedCars();
         assertNull(c[1]);
     }
 

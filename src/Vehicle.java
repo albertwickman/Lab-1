@@ -3,7 +3,7 @@ package src;
 import java.awt.*;
 
 /**
- * Abstract class for src.Cars
+ * Abstract class for vehicles
  */
 public abstract class Vehicle implements Movable {
     /**

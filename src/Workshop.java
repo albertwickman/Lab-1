@@ -2,15 +2,17 @@ package src;
 
 import java.util.List;
 
-public class Workshop<C extends Cars> {
+public class Workshop<C extends Car> {
     public List<C> cars;
+    private final int maxCars;
 
     /**
      * Create a workshop of type C
      * @param car What type of
      */
-    public Workshop(List<C> car) {
+    public Workshop(List<C> car, int maxCars) {
         this.cars = car;
+        this.maxCars = maxCars;
     }
 
     /**
@@ -18,7 +20,8 @@ public class Workshop<C extends Cars> {
      * @param c Car to repair
      */
     public void load(C c) {
-        cars.add(c);
+        if (cars.size() < maxCars)
+            cars.add(c);
     }
 
     /**

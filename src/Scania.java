@@ -51,9 +51,8 @@ public class Scania extends Vehicle {
         trailer = new Transport(this, maxCars);
     }
 
-    public void loadCar(Cars c) {
-        if (trailer instanceof Transport)
-            ((Transport) trailer).loadCar(c);
+    public void loadCar(Car c) {
+        trailer.loadCar(c);
     }
 
     public void unloadCar() {
@@ -61,7 +60,7 @@ public class Scania extends Vehicle {
             ((Transport) trailer).unloadCar();
     }
 
-    public Cars[] getLoadedCars() {
+    public Car[] getLoadedCars() {
         if (trailer instanceof Transport)
             return ((Transport) trailer).getLoadedCars();
         return null;
@@ -81,12 +80,11 @@ public class Scania extends Vehicle {
      *  Connect a trailer with a platform to the truck.
      */
     public void connectPlatform() {
-        trailer = new Platform(this);
+        trailer = new Trailer(this);
     }
 
     public void setAngle(int angle) {
-        if (trailer instanceof Platform)
-            ((Platform) trailer).setAngle(angle);
+        trailer.setAngle(angle);
     }
 
 

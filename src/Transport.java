@@ -1,8 +1,7 @@
 package src;
 
-public class Transport implements Trailer {
-    private final Scania truck;
-    private final Cars[] loadedCars;
+public class Transport extends Trailer {
+    private final Car[] loadedCars;
     private final int distanceToTransport = 5;
 
     /**
@@ -11,16 +10,16 @@ public class Transport implements Trailer {
      * @param maxCars Maximum capacity
      */
     public Transport (Scania truck, int maxCars) {
-        this.truck = truck;
+        super(truck);
         truck.setMovementAllowed(false);
-        loadedCars = new Cars[maxCars];
+        loadedCars = new Car[maxCars];
     }
 
     /**
      * Load a car to the transport.
      * @param c Car to load
      */
-    public void loadCar(Cars c) {
+    public void loadCar(Car c) {
         if (!truck.isMovementAllowed() && indexEmpty(loadedCars) != -1) {
             loadedCars[indexEmpty(loadedCars)] = c;
             c.setxCor(truck.getXcor());
@@ -28,14 +27,14 @@ public class Transport implements Trailer {
         }
     }
 
-    private int indexEmpty(Cars[] arr) {
+    private int indexEmpty(Car[] arr) {
         for (int i = 0; i < arr.length; i++)
             if (arr[i] == null)
                 return i;
         return -1;
     }
 
-    private int indexLastCar(Cars[] arr) {
+    private int indexLastCar(Car[] arr) {
         for (int i = arr.length -1; i >= 0; i--)
             if (arr[i] != null)
                 return i;
@@ -48,7 +47,7 @@ public class Transport implements Trailer {
     public void unloadCar() {
         int index = indexLastCar(loadedCars);
         if(index != -1 && !truck.isMovementAllowed()) {
-            Cars c = loadedCars[index];
+            Car c = loadedCars[index];
             loadedCars[index] = null;
             c.setyCor(c.getyCor() + distanceToTransport);
             c.setxCor(c.getXcor() + distanceToTransport);
@@ -59,7 +58,7 @@ public class Transport implements Trailer {
      * Used to update all coordinates of the cars loaded on the transport.
      */
     public void updateCarCoor() {
-        for (Cars c : loadedCars) {
+        for (Car c : loadedCars) {
             if(c != null) {
                 c.setxCor(truck.getXcor());
                 c.setyCor(truck.getyCor());
@@ -67,20 +66,20 @@ public class Transport implements Trailer {
         }
     }
 
-    public Cars[] getLoadedCars() {
+    public Car[] getLoadedCars() {
         return loadedCars;
     }
     /**
      * Raise the ramp. Enables movement of the truck.
      */
     public void raiseRamp() {
-        truck.setMovementAllowed(true);
+        setAngle(getMIN_ANGLE());
     }
 
     /**
      * Lower the ramp. Disables movement of the truck.
      */
     public void lowerRamp() {
-        truck.setMovementAllowed(false);
+        setAngle(getMAX_ANGLE());
     }
 }

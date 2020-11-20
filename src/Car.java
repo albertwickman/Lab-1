@@ -2,7 +2,7 @@ package src;
 
 import java.awt.*;
 
-public abstract class Cars extends Vehicle {
+public abstract class Car extends Vehicle {
     /**
      * Abstract class representing a car extending Vehicle
      * @param nrDoors Number of doors
@@ -13,8 +13,8 @@ public abstract class Cars extends Vehicle {
      * @param xCor x-coordinate
      * @param yCor y-coordinate
      */
-    public Cars(int nrDoors, double enginePower, double currentSpeed, Color color,
-                String modelName, int xCor, int yCor){
+    public Car(int nrDoors, double enginePower, double currentSpeed, Color color,
+               String modelName, int xCor, int yCor){
         super(nrDoors, enginePower, currentSpeed, color,
                  modelName, xCor, yCor);
     }
