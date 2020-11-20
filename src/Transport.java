@@ -20,10 +20,10 @@ public class Transport extends Trailer {
      * @param c Car to load
      */
     public void loadCar(Car c) {
-        if (!truck.isMovementAllowed() && indexEmpty(loadedCars) != -1) {
+        if (!getTruck().isMovementAllowed() && indexEmpty(loadedCars) != -1) {
             loadedCars[indexEmpty(loadedCars)] = c;
-            c.setxCor(truck.getXcor());
-            c.setyCor(truck.getyCor());
+            c.setxCor(getTruck().getXcor());
+            c.setyCor(getTruck().getyCor());
         }
     }
 
@@ -46,7 +46,7 @@ public class Transport extends Trailer {
      */
     public void unloadCar() {
         int index = indexLastCar(loadedCars);
-        if(index != -1 && !truck.isMovementAllowed()) {
+        if(index != -1 && !getTruck().isMovementAllowed()) {
             Car c = loadedCars[index];
             loadedCars[index] = null;
             c.setyCor(c.getyCor() + distanceToTransport);
@@ -60,8 +60,8 @@ public class Transport extends Trailer {
     public void updateCarCoor() {
         for (Car c : loadedCars) {
             if(c != null) {
-                c.setxCor(truck.getXcor());
-                c.setyCor(truck.getyCor());
+                c.setxCor(getTruck().getXcor());
+                c.setyCor(getTruck().getyCor());
             }
         }
     }

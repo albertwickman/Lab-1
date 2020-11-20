@@ -25,6 +25,10 @@ public class Trailer {
         truck.setMovementAllowed(true);
     }
 
+    public Scania getTruck() {
+        return truck;
+    }
+
     public void loadCar(Car c) {
 
     }
