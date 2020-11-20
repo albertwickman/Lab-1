@@ -13,7 +13,7 @@ public class Platform implements Trailer{
     public Platform (Scania truck) {
         this.angle = 0;
         this.truck = truck;
-        truck.setMovementAllowed(false);
+        truck.setMovementAllowed(true);
     }
 
     /**
@@ -23,7 +23,7 @@ public class Platform implements Trailer{
     public void setAngle(int angle) {
         if (MIN_ANGLE <= angle && angle <= MAX_ANGLE) {
             this.angle = angle;
-            truck.setMovementAllowed(angle != MIN_ANGLE);
+            truck.setMovementAllowed(angle == MIN_ANGLE);
         }
     }
 }

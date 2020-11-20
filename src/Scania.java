@@ -35,14 +35,14 @@ public class Scania extends Vehicle {
 
     @Override
     public void move() {
-        if (!isMovementAllowed()) {
+        if (isMovementAllowed()) {
             super.move();
             if (trailer instanceof Transport)
                 ((Transport) trailer).updateCarCoor();
         }
     }
 
-    // -------------- Methods for trailer with transporter --------------
+    // -------------- Delegation of methods for trailer with transporter --------------
     /**
      * Connect a trailer with car transport capabilities to the truck.
      * @param maxCars Maximum capacity of the trailer
@@ -76,7 +76,7 @@ public class Scania extends Vehicle {
         if (trailer instanceof Transport)
             ((Transport) trailer).lowerRamp();
     }
-    // -------------- Methods for trailer with platform --------------
+    // -------------- Delegation of methods for trailer with platform --------------
     /**
      *  Connect a trailer with a platform to the truck.
      */

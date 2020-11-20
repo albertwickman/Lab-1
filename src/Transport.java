@@ -20,7 +20,7 @@ public class Transport implements Trailer {
      * @param c Car to load
      */
     public void loadCar(Cars c) {
-        if (truck.isMovementAllowed() && indexEmpty(loadedCars) != -1) {
+        if (!truck.isMovementAllowed() && indexEmpty(loadedCars) != -1) {
             loadedCars[indexEmpty(loadedCars)] = c;
             c.setxCor(truck.getXcor());
             c.setyCor(truck.getyCor());
@@ -46,7 +46,7 @@ public class Transport implements Trailer {
      */
     public void unloadCar() {
         int index = indexLastCar(loadedCars);
-        if(index != -1 && truck.isMovementAllowed()) {
+        if(index != -1 && !truck.isMovementAllowed()) {
             Cars c = loadedCars[index];
             loadedCars[index] = null;
             c.setyCor(c.getyCor() + 5);
@@ -73,13 +73,13 @@ public class Transport implements Trailer {
      * Raise the ramp. Enables movement of the truck.
      */
     public void raiseRamp() {
-        truck.setMovementAllowed(false);
+        truck.setMovementAllowed(true);
     }
 
     /**
      * Lower the ramp. Disables movement of the truck.
      */
     public void lowerRamp() {
-        truck.setMovementAllowed(true);
+        truck.setMovementAllowed(false);
     }
 }
