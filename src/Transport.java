@@ -3,6 +3,7 @@ package src;
 public class Transport implements Trailer {
     private final Scania truck;
     private final Cars[] loadedCars;
+    private final int distanceToTransport = 5;
 
     /**
      * Type of trailer for transporting cars, extends Trailer.
@@ -49,8 +50,8 @@ public class Transport implements Trailer {
         if(index != -1 && !truck.isMovementAllowed()) {
             Cars c = loadedCars[index];
             loadedCars[index] = null;
-            c.setyCor(c.getyCor() + 5);
-            c.setxCor(c.getXcor() + 5);
+            c.setyCor(c.getyCor() + distanceToTransport);
+            c.setxCor(c.getXcor() + distanceToTransport);
         }
     }
 
