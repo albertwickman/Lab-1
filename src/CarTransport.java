@@ -11,6 +11,14 @@ public class CarTransport extends Truck implements Ramp {
         loadedCars = new Car[maxCars];
     }
 
+    @Override
+    public void move() {
+        if (isMovementAllowed()) {
+            super.move();
+            updateCarCoor();
+        }
+    }
+
     public void loadCar(Car c) {
         if (!movementAllowed && indexEmpty(loadedCars) != -1) {
             loadedCars[indexEmpty(loadedCars)] = c;

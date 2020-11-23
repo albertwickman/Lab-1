@@ -6,12 +6,11 @@ import java.awt.*;
 
 public class TestTransport {
 
-    Scania s = new Scania(2, 400, 0, Color.red,
-            "BigAssTruck", 0,0);
+    CarTransport s = new CarTransport(2, 400, 0, Color.red,
+            "BigAssTruck", 0,0, 6);
 
     @Test
     public void oneCar() {
-        s.connectTransport(6);
         Saab95 saab = new Saab95(0,0);
         s.setAngle(2);
         s.loadCar(saab);
@@ -21,7 +20,6 @@ public class TestTransport {
 
     @Test
     public void unloadCar() {
-        s.connectTransport(6);
         Saab95 saab = new Saab95(0,0);
         s.setAngle(2);
         s.loadCar(saab);
@@ -34,7 +32,6 @@ public class TestTransport {
     @Test
     public void carsCoordinatesUpdatesWithTransports() {
         Volvo240 car = new Volvo240(0, 0);
-        s.connectTransport(10);
         s.setAngle(2);
         s.loadCar(car);
         s.setAngle(0);
