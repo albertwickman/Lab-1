@@ -21,11 +21,6 @@ public class Scania extends Truck implements Ramp{
         this.angle = MIN_ANGLE;
     }
 
-
-    public boolean isMovementAllowed() {
-        return movementAllowed;
-    }
-
     @Override
     public void move() {
         if (isMovementAllowed()) {
