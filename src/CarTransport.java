@@ -61,6 +61,7 @@ public class CarTransport extends Truck implements Ramp {
                 return i;
         return -1;
     }
+
     @Override
     public void setAngle(int angle) {
         if (angle == 0)
