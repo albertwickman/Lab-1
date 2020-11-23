@@ -3,18 +3,27 @@ package src;
 import java.awt.*;
 
 /**
- * Class for a Scania truck. Extends Truck and implements a ramp.
+ * Class describing a Scania truck. Extends Truck and implements ramp.
  */
 
 public class Scania extends Truck implements Ramp{
-    /**
-     * Ramp has a min angle and a max angle.
-     *  angle is current angle of ramp.
-     */
+
     private final int MIN_ANGLE = 0;
     private final int MAX_ANGLE = 70;
     private int angle;
 
+    /**
+     * Ramp has a min angle and a max angle.
+     *  angle is current angle of ramp.
+     * Create a new Scania truck.
+     * @param nrDoors Number of doors
+     * @param enginePower Engine power hp
+     * @param currentSpeed Current speed
+     * @param color Color of the Scania
+     * @param modelName Model name
+     * @param xCor x-coordinate
+     * @param yCor y-coordinate
+     */
     public Scania(int nrDoors, double enginePower, double currentSpeed, Color color, String modelName, int xCor, int yCor) {
         super(nrDoors, enginePower, currentSpeed, color, modelName, xCor, yCor);
         setMovementAllowed(true);
