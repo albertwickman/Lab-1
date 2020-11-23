@@ -4,7 +4,7 @@ import src.*;
 import static org.junit.Assert.*;
 import java.awt.*;
 
-public class TestTransport {
+public class TestCarTransport {
 
     CarTransport s = new CarTransport(2, 400, 0, Color.red,
             "BigAssTruck", 0,0, 6);
