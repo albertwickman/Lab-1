@@ -1,5 +1,5 @@
 package src;
 
 public interface Ramp {
-    void setAngle();
+    void setAngle(int angle);
 }
