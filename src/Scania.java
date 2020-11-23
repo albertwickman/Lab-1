@@ -7,7 +7,7 @@ public class Scania extends Truck implements Ramp{
     private final int MAX_ANGLE = 70;
     private int angle;
     /**
-     * Instantiates a new Car.
+     * Instantiates a new Scania.
      *
      * @param nrDoors      the nr doors
      * @param enginePower  the engine power
