@@ -7,14 +7,15 @@ import java.awt.*;
  */
 
 public class Scania extends Truck implements Ramp{
-
+    /**
+     * Ramp has a min angle and a max angle.
+     * angle is current angle of ramp.
+     */
     private final int MIN_ANGLE = 0;
     private final int MAX_ANGLE = 70;
     private int angle;
 
-    /**
-     * Ramp has a min angle and a max angle.
-     *  angle is current angle of ramp.
+     /**
      * Create a new Scania truck.
      * @param nrDoors Number of doors
      * @param enginePower Engine power hp
