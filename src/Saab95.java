@@ -5,7 +5,7 @@ import java.awt.*;
 /**
  * Class for car src.Saab95. Extends src.Cars.
  */
-public class Saab95 extends Car {
+public class Saab95 extends Car implements Turbo{
 
     /**
      * Status of the turbo.
@@ -23,6 +23,7 @@ public class Saab95 extends Car {
     /**
      * Set turbo on.
      */
+    @Override
     public void setTurboOn(){
         turboOn = true;
     }
@@ -30,6 +31,7 @@ public class Saab95 extends Car {
     /**
      * Set turbo off.
      */
+    @Override
     public void setTurboOff(){
         turboOn = false;
     }
@@ -38,6 +40,7 @@ public class Saab95 extends Car {
      * Gets status of turbo
      * @return boolean value of turbo
      */
+    @Override
     public boolean isTurboOn() {
         return turboOn;
     }
