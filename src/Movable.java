@@ -1,7 +1,7 @@
 package src;
 
 /**
- * The interface src.Movable.
+ * The interface Movable.
  */
 public interface Movable {
     /**

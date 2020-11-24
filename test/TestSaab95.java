@@ -47,7 +47,7 @@ public class TestSaab95 {
     }
 
     @Test
-    public void  dx() {
+    public void dx() {
         Saab95 saab = new Saab95(0,0);
         saab.gas(0.5);
         saab.turnLeft();
@@ -56,7 +56,7 @@ public class TestSaab95 {
     }
 
     @Test
-    public void  dy() {
+    public void dy() {
         Saab95 saab = new Saab95(0,0);
         saab.gas(0.5);
         saab.turnLeft();
