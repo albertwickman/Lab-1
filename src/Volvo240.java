@@ -6,9 +6,6 @@ import java.awt.*;
  * Class for Volvo 240. Extends src.Cars.
  */
 public class Volvo240 extends Car {
-    /**
-     *  Final private trim factor
-     */
     private final static double trimFactor = 1.25;
 
     /**
@@ -27,5 +24,4 @@ public class Volvo240 extends Car {
     public double speedFactor(){
         return getEnginePower() * 0.01 * trimFactor;
     }
-
 }

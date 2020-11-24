@@ -70,6 +70,15 @@ public class CarTransport extends Truck implements Ramp {
         }
     }
 
+    /**
+     * Raise/lower the ramp
+     * @param angle If angle == 0 then raised, else lowered
+     */
+    @Override
+    public void setAngle(int angle) {
+        movementAllowed = angle == 0;
+    }
+
     public Car[] getLoadedCars() { return loadedCars; }
 
     private int indexEmpty(Car[] arr) {
@@ -84,18 +93,5 @@ public class CarTransport extends Truck implements Ramp {
             if (arr[i] != null)
                 return i;
         return -1;
-    }
-
-    /**
-     * Raise/lower the ramp
-     * @param angle If angle == 0 then lower, else raise
-     */
-    @Override
-    public void setAngle(int angle) {
-        if (angle == 0)
-            movementAllowed = true;
-        else
-            movementAllowed = false;
-
     }
 }

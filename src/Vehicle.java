@@ -6,34 +6,14 @@ import java.awt.*;
  * Abstract class for vehicles
  */
 public abstract class Vehicle implements Movable {
-    /**
-     * The Nr doors.
-     */
-    private final int nrDoors; // Number of doors on the car
-    /**
-     * The Engine power.
-     */
-    private final double enginePower; // Engine power of the car
-    /**
-     * The Current speed.
-     */
-    private double currentSpeed; // The current speed of the car
-
-    /**
-     * The Color.
-     */
-    private Color color; // Color of the car
-    /**
-     * The Model name.
-     */
-    private final String modelName; // The car model name
-
+    private final int nrDoors;
+    private final double enginePower;
+    private double currentSpeed;
+    private Color color;
+    private final String modelName;
     private double xCor;
-
     private double yCor;
-
     private double dx;
-
     private double dy;
 
     /**
@@ -62,12 +42,92 @@ public abstract class Vehicle implements Movable {
     /**
      * Moves the car one step.
      */
-
     public void move() {
         xCor += dx;
         yCor += dy;
     }
 
+    @Override
+    public void gas(double amount){
+        if (0 <= amount && amount <= 1)
+            incrementSpeed(amount);
+        if (getDx() == 0)
+            setDy(getCurrentSpeed());
+        else
+            setDx(getCurrentSpeed());
+    }
+
+    @Override
+    public void brake(double amount){
+        if (0 <= amount && amount <= 1)
+            decrementSpeed(amount);
+        if (getDx() == 0)
+            setDy(-getCurrentSpeed());
+        else
+            setDx(getCurrentSpeed());
+    }
+
+    public double speedFactor() {return getEnginePower() * 0.01; }
+
+    private void decrementSpeed(double amount){
+        setCurrentSpeed(getCurrentSpeed() - speedFactor() * amount);
+    }
+
+    private void incrementSpeed(double amount){
+        setCurrentSpeed(Math.min(getCurrentSpeed() + speedFactor() * amount,getEnginePower()));
+    }
+
+    @Override
+    public void turnLeft() {
+        if(dx < 0) {                    // if movement along the x-axis is negative, set x-movement to 0 and y-movement to the current speed
+            dx = 0;
+            dy = getCurrentSpeed();
+        }
+        else if(dx > 0) {         // same but the opposite, x-movement is still 0
+            dx = 0;
+            dy = -getCurrentSpeed();
+        }
+        else if (dy < 0) {                 // if movement along the y-axis is negative, set y-movement to 0 and x-movement to the negative current speed
+            dx = -getCurrentSpeed();
+            dy = 0;
+        }
+        else if(dy > 0) {                   // same but the opposite, y-movement is still 0
+            dx = getCurrentSpeed();
+            dy = 0;
+        }
+    }
+    
+    @Override
+    public void turnRight() {           // if movement along the x-axis is negative, set x-movement to 0 and y-movement to the negative current speed
+        if(dx < 0) {
+            dx = 0;
+            dy = -getCurrentSpeed();
+        }
+        else if(dx > 0) {               // same but opposite, x-movement is still 0
+            dx = 0;
+            dy = getCurrentSpeed();
+        }
+        else if (dy < 0) {              // if movement along the y-axis is negative, set y-movement to 0 and x-movement to the current speed
+            dx = getCurrentSpeed();
+            dy = 0;
+        }
+        else if(dy > 0) {               // same but opposite, y-movement is still 0
+            dx = -getCurrentSpeed();
+            dy = 0;
+        }
+    }
+
+    /**
+     * Starts engine.
+     */
+    public void startEngine(){ setCurrentSpeed(0.1); }
+
+    /**
+     * Stops engine.
+     */
+    public void stopEngine(){ setCurrentSpeed(0); }
+
+    // ------------------- Setters and getters -------------------
     /**
      * Gets nr of doors.
      *
@@ -146,85 +206,5 @@ public abstract class Vehicle implements Movable {
 
     public void setDy(double dy) {
         this.dy = dy;
-    }
-
-    public double speedFactor() {return getEnginePower() * 0.01; }
-
-    public void decrementSpeed(double amount){
-        setCurrentSpeed(getCurrentSpeed() - speedFactor() * amount);
-    }
-
-    private void incrementSpeed(double amount){
-        setCurrentSpeed(Math.min(getCurrentSpeed() + speedFactor() * amount,getEnginePower()));
-    }
-
-    /**
-     * Starts engine.
-     */
-    public void startEngine(){ setCurrentSpeed(0.1); }
-
-    /**
-     * Stops engine.
-     */
-    public void stopEngine(){ setCurrentSpeed(0); }
-
-    @Override
-    public void gas(double amount){
-        if (0 <= amount && amount <= 1)
-            incrementSpeed(amount);
-        if (getDx() == 0)
-            setDy(getCurrentSpeed());
-        else
-            setDx(getCurrentSpeed());
-    }
-
-    @Override
-    public void brake(double amount){
-        if (0 <= amount && amount <= 1)
-            decrementSpeed(amount);
-        if (getDx() == 0)
-            setDy(-getCurrentSpeed());
-        else
-            setDx(getCurrentSpeed());
-    }
-
-    @Override
-    public void turnLeft() {
-        if(dx < 0) {                    // if movement along the x-axis is negative, set x-movement to 0 and y-movement to the current speed
-            dx = 0;
-            dy = getCurrentSpeed();
-        }
-        else if(dx > 0) {         // same but the opposite, x-movement is still 0
-            dx = 0;
-            dy = -getCurrentSpeed();
-        }
-        else if (dy < 0) {                 // if movement along the y-axis is negative, set y-movement to 0 and x-movement to the negative current speed
-            dx = -getCurrentSpeed();
-            dy = 0;
-        }
-        else if(dy > 0) {                   // same but the opposite, y-movement is still 0
-            dx = getCurrentSpeed();
-            dy = 0;
-        }
-    }
-    
-    @Override
-    public void turnRight() {           // if movement along the x-axis is negative, set x-movement to 0 and y-movement to the negative current speed
-        if(dx < 0) {
-            dx = 0;
-            dy = -getCurrentSpeed();
-        }
-        else if(dx > 0) {               // same but opposite, x-movement is still 0
-            dx = 0;
-            dy = getCurrentSpeed();
-        }
-        else if (dy < 0) {              // if movement along the y-axis is negative, set y-movement to 0 and x-movement to the current speed
-            dx = getCurrentSpeed();
-            dy = 0;
-        }
-        else if(dy > 0) {               // same but opposite, y-movement is still 0
-            dx = -getCurrentSpeed();
-            dy = 0;
-        }
     }
 }
