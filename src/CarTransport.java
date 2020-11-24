@@ -98,4 +98,14 @@ public class CarTransport extends Truck implements Ramp {
             movementAllowed = false;
 
     }
+
+    @Override
+    public void gas(double amount) {
+
+    }
+
+    @Override
+    public void brake(double amount) {
+
+    }
 }

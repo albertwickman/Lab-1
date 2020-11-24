@@ -5,7 +5,7 @@ import java.awt.*;
 /**
  * Class for car src.Saab95. Extends src.Cars.
  */
-public class Saab95 extends Car implements Turbo{
+public class Saab95 extends Car implements Turbo {
 
     /**
      * Status of the turbo.

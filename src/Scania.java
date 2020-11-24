@@ -52,4 +52,14 @@ public class Scania extends Truck implements Ramp{
             setMovementAllowed(angle == MIN_ANGLE);
         }
     }
+
+    @Override
+    public void gas(double amount) {
+
+    }
+
+    @Override
+    public void brake(double amount) {
+
+    }
 }
