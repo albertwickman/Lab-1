@@ -33,6 +33,16 @@ public class CarTransport extends Truck implements Ramp {
         }
     }
 
+    @Override
+    public void incrementSpeed(double amount) {
+
+    }
+
+    @Override
+    public void decrementSpeed(double amount) {
+
+    }
+
     /**
      * Loads a car on the transport
      * @param c The car to load
@@ -96,16 +106,6 @@ public class CarTransport extends Truck implements Ramp {
             movementAllowed = true;
         else
             movementAllowed = false;
-
-    }
-
-    @Override
-    public void gas(double amount) {
-
-    }
-
-    @Override
-    public void brake(double amount) {
 
     }
 }

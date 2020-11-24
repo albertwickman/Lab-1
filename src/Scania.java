@@ -62,4 +62,14 @@ public class Scania extends Truck implements Ramp{
     public void brake(double amount) {
 
     }
+
+    @Override
+    public void incrementSpeed(double amount) {
+
+    }
+
+    @Override
+    public void decrementSpeed(double amount) {
+
+    }
 }

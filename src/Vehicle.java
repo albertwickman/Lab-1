@@ -159,6 +159,26 @@ public abstract class Vehicle implements Movable {
     public void stopEngine(){ setCurrentSpeed(0); }
 
     @Override
+    public void gas(double amount){
+        if (0 <= amount && amount <= 1)
+            incrementSpeed(amount);
+        if (getDx() == 0)
+            setDy(getCurrentSpeed());
+        else
+            setDx(getCurrentSpeed());
+    }
+
+    @Override
+    public void brake(double amount){
+        if (0 <= amount && amount <= 1)
+            decrementSpeed(amount);
+        if (getDx() == 0)
+            setDy(-getCurrentSpeed());
+        else
+            setDx(getCurrentSpeed());
+    }
+
+    @Override
     public void turnLeft() {
         if(dx < 0) {                    // if movement along the x-axis is negative, set x-movement to 0 and y-movement to the current speed
             dx = 0;

@@ -32,6 +32,7 @@ public class Volvo240 extends Car {
      *
      * @param amount the amount
      */
+    @Override
     private void incrementSpeed(double amount){
         setCurrentSpeed(Math.min(getCurrentSpeed() + speedFactor() * amount,getEnginePower()));
     }
@@ -41,37 +42,14 @@ public class Volvo240 extends Car {
      *
      * @param amount the amount
      */
-    private void decrementSpeed(double amount){
+    @Override
+    public void decrementSpeed(double amount){
         setCurrentSpeed(Math.max(getCurrentSpeed() - speedFactor() * amount,0));
     }
 
+    @Override
+    public void gas(double amount) {
 
-    /**
-     * Accelerate.
-     *
-     * @param amount accelerate by amount
-     */
-    public void gas(double amount){
-        if (0 <= amount && amount <= 1)
-            incrementSpeed(amount);
-        if (getDx() == 0)
-            setDy(getCurrentSpeed());
-        else
-            setDx(getCurrentSpeed());
-    }
-
-    /**
-     * Brake.
-     *
-     * @param amount decelerate by amount
-     */
-    public void brake(double amount){
-        if (0 <= amount && amount <= 1)
-            decrementSpeed(amount);
-        if (getDx() == 0)
-            setDy(-getCurrentSpeed());
-        else
-            setDx(-getCurrentSpeed());
     }
 
 }

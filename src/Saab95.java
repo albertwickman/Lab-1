@@ -61,7 +61,8 @@ public class Saab95 extends Car implements Turbo {
      *
      * @param amount amount of acceleration
      */
-    private void incrementSpeed(double amount){
+    @Override
+    public void incrementSpeed(double amount){
         setCurrentSpeed(getCurrentSpeed() + speedFactor() * amount);
     }
 
@@ -70,36 +71,9 @@ public class Saab95 extends Car implements Turbo {
      *
      * @param amount amount of deceleration
      */
-    private void decrementSpeed(double amount){
+    @Override
+    public void decrementSpeed(double amount){
         setCurrentSpeed(getCurrentSpeed() - speedFactor() * amount);
-    }
-
-    /**
-     * Accelerate
-     *
-     * @param amount accelerate by amount
-     */
-    public void gas(double amount){
-        if (0 <= amount && amount <= 1)
-            incrementSpeed(amount);
-        if (getDx() == 0)
-            setDy(getCurrentSpeed());
-        else
-            setDx(getCurrentSpeed());
-    }
-
-    /**
-     * Brake.
-     *
-     * @param amount brake by amount
-     */
-    public void brake(double amount){
-        if (0 <= amount && amount <= 1)
-            decrementSpeed(amount);
-        if (getDx() == 0)
-            setDy(-getCurrentSpeed());
-        else
-            setDx(getCurrentSpeed());
     }
 
 }
