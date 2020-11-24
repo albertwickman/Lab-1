@@ -22,8 +22,4 @@ public interface Movable {
     void gas(double amount);
 
     void brake(double amount);
-
-    void incrementSpeed(double amount);
-
-    void decrementSpeed(double amount);
 }

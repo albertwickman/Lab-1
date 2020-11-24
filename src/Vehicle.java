@@ -148,6 +148,16 @@ public abstract class Vehicle implements Movable {
         this.dy = dy;
     }
 
+    public double speedFactor() {return getEnginePower() * 0.01; }
+
+    public void decrementSpeed(double amount){
+        setCurrentSpeed(getCurrentSpeed() - speedFactor() * amount);
+    }
+
+    private void incrementSpeed(double amount){
+        setCurrentSpeed(Math.min(getCurrentSpeed() + speedFactor() * amount,getEnginePower()));
+    }
+
     /**
      * Starts engine.
      */

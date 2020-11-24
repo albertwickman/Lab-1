@@ -50,30 +50,11 @@ public class Saab95 extends Car implements Turbo {
      *
      * @return speed factor
      */
-    private double speedFactor(){
+    @Override
+    public double speedFactor(){
         double turbo = 1;
         if(turboOn) turbo = 1.3;
         return getEnginePower() * 0.01 * turbo;
-    }
-
-    /**
-     * Increment speed.
-     *
-     * @param amount amount of acceleration
-     */
-    @Override
-    public void incrementSpeed(double amount){
-        setCurrentSpeed(getCurrentSpeed() + speedFactor() * amount);
-    }
-
-    /**
-     * Decrement speed.
-     *
-     * @param amount amount of deceleration
-     */
-    @Override
-    public void decrementSpeed(double amount){
-        setCurrentSpeed(getCurrentSpeed() - speedFactor() * amount);
     }
 
 }
