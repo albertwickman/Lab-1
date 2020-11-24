@@ -5,7 +5,7 @@ import java.awt.*;
 /**
  * Class describing a car transport. Extends Truck and implements Ramp.
  */
-public class TruckCarTransport extends Truck implements Ramp {
+public class TruckCarTransport extends Truck implements Ramp, CarTransport {
     private final Car[] loadedCars;
     private final int distanceToTransport = 5;
 
@@ -37,6 +37,7 @@ public class TruckCarTransport extends Truck implements Ramp {
      * Loads a car on the transport
      * @param c The car to load
      */
+    @Override
     public void loadCar(Car c) {
         if (!movementAllowed && indexEmpty(loadedCars) != -1) {
             loadedCars[indexEmpty(loadedCars)] = c;
@@ -48,6 +49,7 @@ public class TruckCarTransport extends Truck implements Ramp {
     /**
      * Unload a car from the transport
      */
+    @Override
     public void unloadCar() {
         int index = indexLastCar(loadedCars);
         if(index != -1 && !movementAllowed) {
@@ -61,6 +63,7 @@ public class TruckCarTransport extends Truck implements Ramp {
     /**
      * Update the coordinates of the cars loaded on the transport.
      */
+    @Override
     public void updateCarCoor() {
         for (Car c : loadedCars) {
             if(c != null) {
@@ -70,6 +73,7 @@ public class TruckCarTransport extends Truck implements Ramp {
         }
     }
 
+    @Override
     public Car[] getLoadedCars() { return loadedCars; }
 
     private int indexEmpty(Car[] arr) {
