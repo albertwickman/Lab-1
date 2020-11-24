@@ -8,7 +8,6 @@ public interface Movable {
      * Move.
      */
     void move();
-
     /**
      * Turn left.
      */
