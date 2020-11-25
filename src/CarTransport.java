@@ -9,6 +9,4 @@ public interface CarTransport {
     void updateCarCoor();
 
     Car[] getLoadedCars();
-
-
 }
