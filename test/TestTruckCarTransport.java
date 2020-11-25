@@ -4,9 +4,9 @@ import src.*;
 import static org.junit.Assert.*;
 import java.awt.*;
 
-public class TestCarTransport {
+public class TestTruckCarTransport {
 
-    CarTransport s = new CarTransport(2, 400, 0, Color.red,
+    TruckCarTransport s = new TruckCarTransport(2, 400, 0, Color.red,
             "BigAssTruck", 0,0, 6);
 
     @Test

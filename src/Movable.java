@@ -1,14 +1,13 @@
 package src;
 
 /**
- * The interface src.Movable.
+ * The interface Movable.
  */
 public interface Movable {
     /**
      * Move.
      */
     void move();
-
     /**
      * Turn left.
      */

@@ -7,10 +7,6 @@ import java.awt.*;
  */
 
 public class Scania extends Truck implements Ramp{
-    /**
-     * Ramp has a min angle and a max angle.
-     * angle is current angle of ramp.
-     */
     private final int MIN_ANGLE = 0;
     private final int MAX_ANGLE = 70;
     private int angle;
@@ -53,13 +49,4 @@ public class Scania extends Truck implements Ramp{
         }
     }
 
-    @Override
-    public void gas(double amount) {
-
-    }
-
-    @Override
-    public void brake(double amount) {
-
-    }
 }
