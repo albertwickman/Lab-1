@@ -12,7 +12,8 @@ public interface Movable {
      * Turn left.
      */
     void turnLeft();
-
+    void setMovementAllowed(boolean movementAllowed);
+    boolean isMovementAllowed();
     /**
      * Turn right.
      */

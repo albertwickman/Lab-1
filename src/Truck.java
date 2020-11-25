@@ -9,12 +9,4 @@ public abstract class Truck extends Vehicle {
 
         super(nrDoors, enginePower, currentSpeed, color, modelName, xCor, yCor);
     }
-
-    public void setMovementAllowed(boolean movementAllowed) {
-        this.movementAllowed = movementAllowed;
-    }
-
-    public boolean isMovementAllowed() {
-        return movementAllowed;
-    }
 }

@@ -5,6 +5,9 @@ import java.awt.*;
 /**
  * Class describing a car transport. Extends Truck and implements Ramp.
  */
+
+//Inte samma bil på olika TruckCarTransport
+    // Bilen ska veta att den är på en transport
 public class TruckCarTransport extends Truck implements Ramp, CarTransport {
     private final Car[] loadedCars;
     private final int distanceToTransport = 5;
@@ -33,15 +36,16 @@ public class TruckCarTransport extends Truck implements Ramp, CarTransport {
 
 
     /**
-     * Loads a car on the transport
+     * Loads a car on the transport if the ramp is down and the car is on no other transport
      * @param c The car to load
      */
     @Override
     public void loadCar(Car c) {
-        if (!movementAllowed && indexEmpty(loadedCars) != -1) {
+        if (!isMovementAllowed() && !c.isOnTransport() && indexEmpty(loadedCars) != -1) {
             loadedCars[indexEmpty(loadedCars)] = c;
             c.setxCor(getXcor());
             c.setyCor(getyCor());
+            c.setOnTransport(true);
         }
     }
 
@@ -51,11 +55,12 @@ public class TruckCarTransport extends Truck implements Ramp, CarTransport {
     @Override
     public void unloadCar() {
         int index = indexLastCar(loadedCars);
-        if(index != -1 && !movementAllowed) {
+        if(index != -1 && !isMovementAllowed()) {
             Car c = loadedCars[index];
             loadedCars[index] = null;
             c.setyCor(c.getyCor() + distanceToTransport);
             c.setxCor(c.getXcor() + distanceToTransport);
+            c.setOnTransport(false);
         }
     }
 
@@ -95,7 +100,6 @@ public class TruckCarTransport extends Truck implements Ramp, CarTransport {
      */
     @Override
     public void setAngle(int angle) {
-        movementAllowed = angle == 0;
-
+        setMovementAllowed(angle == 0);
     }
 }

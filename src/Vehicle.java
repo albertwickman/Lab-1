@@ -15,7 +15,8 @@ public abstract class Vehicle implements Movable {
     private double yCor;
     private double dx;
     private double dy;
-    protected boolean movementAllowed;
+    private boolean movementAllowed;
+    private boolean onTransport;
 
     /**
      * Instantiates a new Car.
@@ -39,13 +40,14 @@ public abstract class Vehicle implements Movable {
         this.dx = currentSpeed;
         this.dy = currentSpeed;
         this.movementAllowed = true;
+        this.onTransport = false;
     }
 
     /**
-     * Moves the car one step.
+     * Moves the car one step if movement is allowed.
      */
     public void move() {
-        if (movementAllowed) {
+        if (isMovementAllowed() && !isOnTransport()) {
             xCor += dx;
             yCor += dy;
         }
@@ -53,22 +55,26 @@ public abstract class Vehicle implements Movable {
 
     @Override
     public void gas(double amount){
-        if (0 <= amount && amount <= 1)
-            incrementSpeed(amount);
-        if (getDx() == 0)
-            setDy(getCurrentSpeed());
-        else
-            setDx(getCurrentSpeed());
+        if (!isOnTransport()) {
+            if (0 <= amount && amount <= 1)
+                incrementSpeed(amount);
+            if (getDx() == 0)
+                setDy(getCurrentSpeed());
+            else
+                setDx(getCurrentSpeed());
+        }
     }
 
     @Override
     public void brake(double amount){
-        if (0 <= amount && amount <= 1)
-            decrementSpeed(amount);
-        if (getDx() == 0)
-            setDy(-getCurrentSpeed());
-        else
-            setDx(getCurrentSpeed());
+        if (!isOnTransport()) {
+            if (0 <= amount && amount <= 1)
+                decrementSpeed(amount);
+            if (getDx() == 0)
+                setDy(-getCurrentSpeed());
+            else
+                setDx(getCurrentSpeed());
+        }
     }
 
     public double speedFactor() {return getEnginePower() * 0.01; }
@@ -210,5 +216,23 @@ public abstract class Vehicle implements Movable {
 
     public void setDy(double dy) {
         this.dy = dy;
+    }
+
+    @Override
+    public void setMovementAllowed(boolean movementAllowed) {
+        this.movementAllowed = movementAllowed;
+    }
+
+    @Override
+    public boolean isMovementAllowed() {
+        return movementAllowed;
+    }
+
+    public boolean isOnTransport() {
+        return onTransport;
+    }
+
+    public void setOnTransport(boolean onTransport) {
+        this.onTransport = onTransport;
     }
 }
