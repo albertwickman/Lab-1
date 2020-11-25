@@ -28,16 +28,6 @@ public class Scania extends Truck implements Ramp{
     }
 
     /**
-     * Moves truck if movement is allowed, i.e. the ramp is up.
-     */
-    @Override
-    public void move() {
-        if (isMovementAllowed()) {
-            super.move();
-        }
-    }
-
-    /**
      * Sets angle of ramp.
      * @param angle to set ramp at angle
      */

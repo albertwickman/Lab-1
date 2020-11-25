@@ -27,11 +27,10 @@ public class TruckCarTransport extends Truck implements Ramp, CarTransport {
 
     @Override
     public void move() {
-        if (isMovementAllowed()) {
-            super.move();
-            updateCarCoor();
-        }
+        super.move();
+        updateCarCoor();
     }
+
 
     /**
      * Loads a car on the transport

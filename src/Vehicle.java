@@ -15,6 +15,7 @@ public abstract class Vehicle implements Movable {
     private double yCor;
     private double dx;
     private double dy;
+    protected boolean movementAllowed;
 
     /**
      * Instantiates a new Car.
@@ -37,14 +38,17 @@ public abstract class Vehicle implements Movable {
         this.yCor = yCor;
         this.dx = currentSpeed;
         this.dy = currentSpeed;
+        this.movementAllowed = true;
     }
 
     /**
      * Moves the car one step.
      */
     public void move() {
-        xCor += dx;
-        yCor += dy;
+        if (movementAllowed) {
+            xCor += dx;
+            yCor += dy;
+        }
     }
 
     @Override
