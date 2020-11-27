@@ -1,6 +1,7 @@
 package src;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -23,7 +24,7 @@ public class CarController {
     // The frame that represents this instance View of the MVC pattern
     CarView frame;
     // A list of cars, modify if needed
-    ArrayList<Car> cars = new ArrayList<>();
+    ArrayList<Vehicle> vehicles = new ArrayList<>();
 
     //methods:
 
@@ -31,7 +32,11 @@ public class CarController {
         // Instance of this class
         CarController cc = new CarController();
 
-        cc.cars.add(new Volvo240(50, 50));
+        cc.vehicles.add(new Volvo240(50, 50));
+
+        cc.vehicles.add(new Saab95(150, 150));
+
+        cc.vehicles.add(new Scania(2, 100, 0, Color.BLACK, "Trucko", 250, 250));
 
         // Start a new view and send a reference of self
         cc.frame = new CarView("CarSim 1.0", cc);
@@ -45,10 +50,10 @@ public class CarController {
     * */
     private class TimerListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            for (Car car : cars) {
-                car.move();
-                int x = (int) Math.round(car.getXcor());
-                int y = (int) Math.round(car.getyCor());
+            for (Vehicle v : vehicles) {
+                v.move();
+                int x = (int) Math.round(v.getXcor());
+                int y = (int) Math.round(v.getyCor());
                 frame.drawPanel.moveit(x, y);
                 // repaint() calls the paintComponent method of the panel
                 frame.drawPanel.repaint();
@@ -59,15 +64,15 @@ public class CarController {
     // Calls the gas method for each car once
     void gas(int amount) {
         double gas = ((double) amount) / 100;
-        for (Car car : cars) {
-            car.gas(gas);
+        for (Vehicle v : vehicles) {
+            v.gas(gas);
         }
     }
 
     void brake(int amount) {
         double brake = ((double) amount) / 100;
-        for(Car car : cars) {
-            car.brake(brake);
+        for(Vehicle v : vehicles) {
+            v.brake(brake);
         }
     }
 }
