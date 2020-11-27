@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.ArrayList;
 
 /*
@@ -28,21 +29,26 @@ public class CarController {
 
     //methods:
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         // Instance of this class
         CarController cc = new CarController();
+        cc.frame = new CarView("CarSim 1.0", cc);
+        cc.addVehicle(new Volvo240(50, 50));
 
-        cc.vehicles.add(new Volvo240(50, 50));
+        cc.addVehicle(new Saab95(50, 150));
 
-        cc.vehicles.add(new Saab95(50, 150));
-
-        cc.vehicles.add(new Scania(2, 100, 0, Color.BLACK, "Truck", 50, 250));
+        cc.addVehicle(new Scania(2, 100, 0, Color.BLACK, "Truck", 50, 250));
 
         // Start a new view and send a reference of self
-        cc.frame = new CarView("CarSim 1.0", cc);
+
 
         // Start the timer
         cc.timer.start();
+    }
+
+    public void addVehicle(Vehicle v) {
+        vehicles.add(v);
+        frame.drawPanel.vehicles.add(v);
     }
 
     /* Each step the TimerListener moves all the cars in the list and tells the
@@ -55,7 +61,6 @@ public class CarController {
                 checkBoundaries(vehicle);
                 int x = (int) Math.round(vehicle.getXcor());
                 int y = (int) Math.round(vehicle.getyCor());
-                frame.drawPanel.moveit(x, y);
                 // repaint() calls the paintComponent method of the panel
                 frame.drawPanel.repaint();
             }
@@ -83,14 +88,12 @@ public class CarController {
     }
 
     private void invertDirection(Vehicle v) {
-        v.stopEngine();
         v.setDx(-1 * v.getDx());
         v.setDy(-1 * v.getDy());
-        v.startEngine();
     }
 
     private boolean isOnEdge(Vehicle v) {
-        return v.getXcor() > frame.getX()|| v.getXcor() < 0 || v.getyCor() < 0 || v.getyCor() > frame.getY() - 200;
+        return v.getXcor() > frame.getX()|| v.getXcor() < 0 || v.getyCor() < 0 || v.getyCor() > frame.getY() - 300;
     }
 
     public void setTurboOn() {

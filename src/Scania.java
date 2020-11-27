@@ -1,6 +1,8 @@
 package src;
 
+import javax.imageio.ImageIO;
 import java.awt.*;
+import java.io.IOException;
 
 /**
  * Class describing a Scania truck. Extends Truck and implements ramp.
@@ -25,6 +27,12 @@ public class Scania extends Truck implements Ramp{
         super(nrDoors, enginePower, currentSpeed, color, modelName, xCor, yCor);
         setMovementAllowed(true);
         this.angle = MIN_ANGLE;
+        try {
+            vehicleImage = ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Scania.jpg"));
+        } catch (IOException ex)
+        {
+            ex.printStackTrace();
+        }
     }
 
     /**

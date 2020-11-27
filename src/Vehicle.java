@@ -1,6 +1,7 @@
 package src;
 
 import java.awt.*;
+import java.awt.image.BufferedImage;
 
 /**
  * Abstract class for vehicles
@@ -17,6 +18,7 @@ public abstract class Vehicle implements Movable {
     private double dy;
     private boolean movementAllowed;
     private boolean onTransport;
+    public BufferedImage vehicleImage;
 
     /**
      * Instantiates a new Car.
