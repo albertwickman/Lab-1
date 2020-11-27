@@ -72,17 +72,19 @@ public class CarController {
         }
     }
 
-    void checkBoundaries(Vehicle v) {
+    private void checkBoundaries(Vehicle v) {
         if (isOnEdge(v))
             invertDirection(v);
     }
 
     private void invertDirection(Vehicle v) {
+        v.stopEngine();
         v.setDx(-1 * v.getDx());
         v.setDy(-1 * v.getDy());
+        v.startEngine();
     }
 
     private boolean isOnEdge(Vehicle v) {
-        return v.getXcor() == frame.getX() || v.getXcor() == 0 || v.getyCor() == 0 || v.getyCor() == frame.getY();
+        return v.getXcor() > CarView.getXBound()|| v.getXcor() < 0 || v.getyCor() < 0 || v.getyCor() > CarView.getYBound() - 300;
     }
 }
