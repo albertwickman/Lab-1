@@ -115,6 +115,13 @@ public class CarView extends JFrame{
             }
         });
 
+        turboOnButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                carC.setTurboOn();
+            }
+        });
+
         // Make the frame pack all it's components by respecting the sizes if possible.
         this.pack();
 
@@ -134,6 +141,16 @@ public class CarView extends JFrame{
     }
 
     public static int getYBound() {
+        return Y;
+    }
+
+    @Override
+    public int getX() {
+        return X;
+    }
+
+    @Override
+    public int getY() {
         return Y;
     }
 }

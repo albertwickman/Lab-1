@@ -63,14 +63,14 @@ public class CarController {
     }
 
     // Calls the gas method for each car once
-    void gas(int amount) {
+    public void gas(int amount) {
         double gas = ((double) amount) / 100;
         for (Vehicle vehicle : vehicles) {
             vehicle.gas(gas);
         }
     }
 
-    void brake(int amount) {
+    public void brake(int amount) {
         double brake = ((double) amount) / 100;
         for(Vehicle vehicle : vehicles) {
             vehicle.brake(brake);
@@ -88,6 +88,15 @@ public class CarController {
     }
 
     private boolean isOnEdge(Vehicle v) {
-        return v.getXcor() > CarView.getXBound()|| v.getXcor() < 0 || v.getyCor() < 0 || v.getyCor() > CarView.getYBound() - 300;
+        return v.getXcor() > frame.getX()|| v.getXcor() < 0 || v.getyCor() < 0 || v.getyCor() > frame.getY() - 200;
     }
+
+    public void setTurboOn() {
+        for(Vehicle v : vehicles) {
+            if(v instanceof Saab95) {
+                //v.setTurboOn();
+            }
+        }
+    }
+
 }
