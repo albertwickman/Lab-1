@@ -135,15 +135,6 @@ public class CarView extends JFrame{
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
-
-    public static int getXBound() {
-        return X;
-    }
-
-    public static int getYBound() {
-        return Y;
-    }
-
     @Override
     public int getX() {
         return X;
