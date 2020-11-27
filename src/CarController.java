@@ -70,4 +70,18 @@ public class CarController {
             car.brake(brake);
         }
     }
+
+    void checkBoundaries(Vehicle v) {
+        if (onEdge(v))
+            invertDirection(v);
+    }
+
+    private void invertDirection(Vehicle v) {
+        v.setDx(-1 * v.getDx());
+        v.setDy(-1 * v.getDy());
+    }
+
+    private boolean onEdge(Vehicle v) {
+        return v.getXcor() == frame.getX() || v.getXcor() == 0 || v.getyCor() == 0 || v.getyCor() == frame.getY();
+    }
 }
