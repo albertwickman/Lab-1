@@ -1,8 +1,8 @@
 package src;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
@@ -11,14 +11,18 @@ import javax.swing.*;
 public class DrawPanel extends JPanel{
 
     // Just a single image, TODO: Generalize
-    BufferedImage volvoImage;
-    // To keep track of a singel cars position
-    Point volvoPoint = new Point();
+
+    ArrayList<Vehicle> vehicles = new ArrayList<>();
+
+    BufferedImage vehicleImage;
+
+    // To keep track of a single cars position
+    Point vehiclePoint = new Point();
 
     // TODO: Make this genereal for all cars
     void moveit(int x, int y){
-        volvoPoint.x = x;
-        volvoPoint.y = y;
+        vehiclePoint.x = x;
+        vehiclePoint.y = y;
     }
 
     // Initializes the panel and reads the images
@@ -34,7 +38,7 @@ public class DrawPanel extends JPanel{
 
             // Rememember to rightclick src New -> Package -> name: pics -> MOVE *.jpg to pics.
             // if you are starting in IntelliJ.
-            volvoImage = ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Volvo240.jpg"));
+            vehicleImage = ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Volvo240.jpg"));
         } catch (IOException ex)
         {
             ex.printStackTrace();
@@ -47,6 +51,6 @@ public class DrawPanel extends JPanel{
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.drawImage(volvoImage, volvoPoint.x, volvoPoint.y, null); // see javadoc for more info on the parameters
+        g.drawImage(vehicleImage, vehiclePoint.x, vehiclePoint.y, null); // see javadoc for more info on the parameters
     }
 }

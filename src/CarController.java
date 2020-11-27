@@ -41,8 +41,8 @@ public class CarController {
     }
 
     /* Each step the TimerListener moves all the cars in the list and tells the
-    * view to update its images. Change this method to your needs.
-    * */
+     * view to update its images. Change this method to your needs.
+     * */
     private class TimerListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             for (Vehicle vehicle : vehicles) {
@@ -67,7 +67,7 @@ public class CarController {
 
     void brake(int amount) {
         double brake = ((double) amount) / 100;
-        for(Vehicle vehicle : vehicles) {
+        for (Vehicle vehicle : vehicles) {
             vehicle.brake(brake);
         }
     }
