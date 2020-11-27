@@ -52,6 +52,7 @@ public class CarController {
         public void actionPerformed(ActionEvent e) {
             for (Vehicle vehicle : vehicles) {
                 vehicle.move();
+                checkBoundaries(vehicle);
                 int x = (int) Math.round(vehicle.getXcor());
                 int y = (int) Math.round(vehicle.getyCor());
                 frame.drawPanel.moveit(x, y);
@@ -74,5 +75,19 @@ public class CarController {
         for(Vehicle vehicle : vehicles) {
             vehicle.brake(brake);
         }
+    }
+
+    private void checkBoundaries(Vehicle v) {
+        if (isOnEdge(v))
+            invertDirection(v);
+    }
+
+    private void invertDirection(Vehicle v) {
+        v.setDx(-1 * v.getDx());
+        v.setDy(-1 * v.getDy());
+    }
+
+    private boolean isOnEdge(Vehicle v) {
+        return v.getXcor() == frame.getX()|| v.getXcor() == 0 || v.getyCor() == 0 || v.getyCor() == frame.getY() - 200;
     }
 }
