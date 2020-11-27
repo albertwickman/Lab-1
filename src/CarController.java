@@ -82,6 +82,17 @@ public class CarController {
         }
     }
 
+    public void startEngines() {
+        for (Vehicle v : vehicles)
+            v.startEngine();
+    }
+
+    public void stopEngines() {
+        for (Vehicle v : vehicles) {
+            v.stopEngine();
+        }
+    }
+
     private void checkBoundaries(Vehicle v) {
         if (isOnEdge(v))
             invertDirection(v);

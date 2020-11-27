@@ -25,7 +25,6 @@ public class Scania extends Truck implements Ramp{
      */
     public Scania(int nrDoors, double enginePower, double currentSpeed, Color color, String modelName, int xCor, int yCor) {
         super(nrDoors, enginePower, currentSpeed, color, modelName, xCor, yCor);
-        setMovementAllowed(true);
         this.angle = MIN_ANGLE;
         try {
             vehicleImage = ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Scania.jpg"));
