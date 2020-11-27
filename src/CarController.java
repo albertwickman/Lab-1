@@ -72,7 +72,7 @@ public class CarController {
         }
     }
 
-    void checkBoundaries(Vehicle v) {
+    private void checkBoundaries(Vehicle v) {
         if (onEdge(v))
             invertDirection(v);
     }
