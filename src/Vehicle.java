@@ -71,7 +71,7 @@ public abstract class Vehicle implements Movable {
             if (0 <= amount && amount <= 1)
                 decrementSpeed(amount);
             if (getDx() == 0)
-                setDy(-getCurrentSpeed());
+                setDy(getCurrentSpeed());
             else
                 setDx(getCurrentSpeed());
         }
