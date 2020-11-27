@@ -93,7 +93,7 @@ public class CarController {
     }
 
     private boolean isOnEdge(Vehicle v) {
-        return v.getXcor() > frame.getX()|| v.getXcor() < 0 || v.getyCor() < 0 || v.getyCor() > frame.getY() - 300;
+        return v.getXcor() > frame.getX() - 100|| v.getXcor() < 0 || v.getyCor() < 0 || v.getyCor() > frame.getY() - 300;
     }
 
     public void setTurboOn() {
