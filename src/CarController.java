@@ -73,7 +73,7 @@ public class CarController {
     }
 
     void checkBoundaries(Vehicle v) {
-        if (onEdge(v))
+        if (isOnEdge(v))
             invertDirection(v);
     }
 
@@ -82,7 +82,7 @@ public class CarController {
         v.setDy(-1 * v.getDy());
     }
 
-    private boolean onEdge(Vehicle v) {
+    private boolean isOnEdge(Vehicle v) {
         return v.getXcor() == frame.getX() || v.getXcor() == 0 || v.getyCor() == 0 || v.getyCor() == frame.getY();
     }
 }
