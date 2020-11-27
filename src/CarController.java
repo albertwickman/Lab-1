@@ -83,10 +83,8 @@ public class CarController {
     }
 
     private void invertDirection(Vehicle v) {
-        v.stopEngine();
         v.setDx(-1 * v.getDx());
         v.setDy(-1 * v.getDy());
-        v.startEngine();
     }
 
     private boolean isOnEdge(Vehicle v) {
