@@ -83,6 +83,6 @@ public class CarController {
     }
 
     private boolean isOnEdge(Vehicle v) {
-        return v.getXcor() == frame.getX()|| v.getXcor() == 0 || v.getyCor() == 0 || v.getyCor() == frame.getY() - 200;
+        return v.getXcor() > CarView.getXBound()|| v.getXcor() < 0 || v.getyCor() < 0 || v.getyCor() > CarView.getYBound() - 300;
     }
 }
