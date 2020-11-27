@@ -58,13 +58,13 @@ public abstract class Vehicle implements Movable {
         if (!isOnTransport()) {
             if (0 <= amount && amount <= 1)
                 incrementSpeed(amount);
-            if (getDx() == 0 && getDy() > 0)
+            if (getDx() == 0 && getDy() >= 0)
                 setDy(getCurrentSpeed());
             else if(getDx() == 0 && getDy() < 0)
                 setDy(-getCurrentSpeed());
             else if(getDx() > 0 && getDy() == 0)
                 setDx(getCurrentSpeed());
-            else
+            else if(getDx() < 0 && getDy() == 0)
                 setDx(-getCurrentSpeed());
 
         }
