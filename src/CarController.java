@@ -1,6 +1,7 @@
 package src;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -32,6 +33,10 @@ public class CarController {
         CarController cc = new CarController();
 
         cc.vehicles.add(new Volvo240(50, 50));
+
+        cc.vehicles.add(new Saab95(50, 150));
+
+        cc.vehicles.add(new Scania(2, 100, 0, Color.BLACK, "Truck", 50, 250));
 
         // Start a new view and send a reference of self
         cc.frame = new CarView("CarSim 1.0", cc);
