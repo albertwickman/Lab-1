@@ -47,6 +47,7 @@ public class CarController {
         public void actionPerformed(ActionEvent e) {
             for (Vehicle vehicle : vehicles) {
                 vehicle.move();
+                checkBoundaries(vehicle);
                 int x = (int) Math.round(vehicle.getXcor());
                 int y = (int) Math.round(vehicle.getyCor());
                 frame.drawPanel.moveit(x, y);
