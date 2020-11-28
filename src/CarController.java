@@ -40,7 +40,7 @@ public class CarController {
         cc.addVehicle(saab);
         cc.addTurbo(saab);
 
-        //cc.addVehicle(new Scania(2, 100, 0, Color.BLACK, "Truck", 50, 250));
+        cc.addVehicle(new Scania(2, 100, 0, Color.BLACK, "Truck", 50, 250));
 
 
         // Start a new view and send a reference of self
