@@ -27,6 +27,7 @@ public class CarController {
     // A list of cars, modify if needed
     ArrayList<Vehicle> vehicles = new ArrayList<>();
     ArrayList<Turbo> turbos = new ArrayList<>();
+    ArrayList<Ramp> ramps = new ArrayList<>();
 
     //methods:
 
