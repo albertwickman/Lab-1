@@ -17,8 +17,7 @@ public class Volvo240 extends Car {
         super(4, 100, 0, Color.black, "Volvo240", xCor, yCor);
         try {
             vehicleImage = ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Volvo240.jpg"));
-        } catch (IOException ex)
-        {
+        } catch (IOException ex) {
             ex.printStackTrace();
         }
     }

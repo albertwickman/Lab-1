@@ -26,6 +26,7 @@ public class CarController {
     CarView frame;
     // A list of cars, modify if needed
     ArrayList<Vehicle> vehicles = new ArrayList<>();
+    ArrayList<Turbo> turbos = new ArrayList<>();
 
     //methods:
 
@@ -35,15 +36,22 @@ public class CarController {
         cc.frame = new CarView("CarSim 1.0", cc);
         cc.addVehicle(new Volvo240(50, 50));
 
-        cc.addVehicle(new Saab95(50, 150));
+        Saab95 saab = new Saab95(50, 150);
+        cc.addVehicle(saab);
+        cc.addTurbo(saab);
 
-        cc.addVehicle(new Scania(2, 100, 0, Color.BLACK, "Truck", 50, 250));
+        //cc.addVehicle(new Scania(2, 100, 0, Color.BLACK, "Truck", 50, 250));
+
 
         // Start a new view and send a reference of self
 
 
         // Start the timer
         cc.timer.start();
+    }
+
+    public void addTurbo(Turbo t) {
+        turbos.add(t);
     }
 
     public void addVehicle(Vehicle v) {
@@ -108,11 +116,14 @@ public class CarController {
     }
 
     public void setTurboOn() {
-        for(Vehicle v : vehicles) {
-            if(v instanceof Saab95) {
-                //v.setTurboOn();
-            }
+        for(Turbo t : turbos) {
+            t.setTurboOn();
         }
     }
 
+    public void setTurboOff() {
+        for(Turbo t : turbos) {
+            t.setTurboOff();
+        }
+    }
 }
