@@ -1,6 +1,8 @@
 package src;
 
+import javax.imageio.ImageIO;
 import java.awt.*;
+import java.io.IOException;
 
 /**
  * Class for car src.Saab95. Extends src.Cars.
@@ -18,6 +20,12 @@ public class Saab95 extends Car implements Turbo {
     public Saab95(int xCor, int yCor){
         super(2, 125, 0, Color.red, "Saab95", xCor, yCor);
         turboOn = false;
+        try {
+            vehicleImage = ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Saab95.jpg"));
+        } catch (IOException ex)
+        {
+            ex.printStackTrace();
+        }
     }
 
     /**

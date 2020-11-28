@@ -3,6 +3,7 @@ import src.*;
 
 import static org.junit.Assert.*;
 import java.awt.*;
+import java.io.IOException;
 
 public class TestTruckCarTransport {
 
@@ -30,7 +31,7 @@ public class TestTruckCarTransport {
     }
 
     @Test
-    public void carsCoordinatesUpdatesWithTransports() {
+    public void carsCoordinatesUpdatesWithTransports() throws IOException {
         Volvo240 car = new Volvo240(0, 0);
         s.setAngle(2);
         s.loadCar(car);

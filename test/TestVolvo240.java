@@ -1,10 +1,16 @@
 import org.junit.Test;
 import src.Volvo240;
+
+import java.io.IOException;
+
 import static org.junit.Assert.*;
 
 public class TestVolvo240 {
 
     private final Volvo240 testCar = new Volvo240(50, 50);
+
+    public TestVolvo240() throws IOException {
+    }
 
     @Test
     public void fourDoors() {

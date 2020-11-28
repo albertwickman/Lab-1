@@ -1,6 +1,7 @@
 package src;
 
 import java.awt.*;
+import java.awt.image.BufferedImage;
 
 /**
  * Abstract class for vehicles
@@ -17,6 +18,7 @@ public abstract class Vehicle implements Movable {
     private double dy;
     private boolean movementAllowed;
     private boolean onTransport;
+    public BufferedImage vehicleImage;
 
     /**
      * Instantiates a new Car.
@@ -39,7 +41,7 @@ public abstract class Vehicle implements Movable {
         this.yCor = yCor;
         this.dx = currentSpeed;
         this.dy = currentSpeed;
-        this.movementAllowed = true;
+        this.movementAllowed = false;
         this.onTransport = false;
     }
 
@@ -139,12 +141,19 @@ public abstract class Vehicle implements Movable {
     /**
      * Starts engine.
      */
-    public void startEngine(){ setCurrentSpeed(0.1); }
+    public void startEngine(){
+        setMovementAllowed(true);
+    }
 
     /**
      * Stops engine.
      */
-    public void stopEngine(){ setCurrentSpeed(0); }
+    public void stopEngine(){
+        setCurrentSpeed(0);
+        setDx(0);
+        setDy(0);
+        setMovementAllowed(false);
+    }
 
     // ------------------- Setters and getters -------------------
     /**
