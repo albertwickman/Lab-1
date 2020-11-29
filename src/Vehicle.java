@@ -48,6 +48,7 @@ public abstract class Vehicle implements Movable {
     /**
      * Moves the car one step if movement is allowed.
      */
+    @Override
     public void move() {
         if (isMovementAllowed() && !isOnTransport()) {
             xCor += dx;
