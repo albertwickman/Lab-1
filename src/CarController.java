@@ -41,7 +41,9 @@ public class CarController {
         cc.addVehicle(saab);
         cc.addTurbo(saab);
 
-        cc.addVehicle(new Scania(2, 100, 0, Color.BLACK, "Truck", 50, 250));
+        Scania truck = new Scania(2, 100, 0, Color.BLACK, "Truck", 50, 250);
+        cc.addVehicle(truck);
+        cc.addRamp(truck);
 
 
         // Start a new view and send a reference of self
@@ -54,6 +56,8 @@ public class CarController {
     public void addTurbo(Turbo t) {
         turbos.add(t);
     }
+
+    public void addRamp(Ramp r) { ramps.add(r); }
 
     public void addVehicle(Vehicle v) {
         vehicles.add(v);
@@ -126,5 +130,9 @@ public class CarController {
         for(Turbo t : turbos) {
             t.setTurboOff();
         }
+    }
+
+    public void raiseRamp() {
+
     }
 }
