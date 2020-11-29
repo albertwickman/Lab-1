@@ -95,12 +95,13 @@ public class CarController {
         }
     }
 
+    /*
+    **BUG**
+    Starts all engines even if ramp is lowered.
+     */
     public void startEngines() {
         for (Vehicle v : vehicles) {
             v.startEngine();
-            if(v instanceof Ramp) {
-
-            }
         }
     }
 
