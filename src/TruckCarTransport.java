@@ -11,6 +11,7 @@ import java.awt.*;
 public class TruckCarTransport extends Truck implements Ramp, CarTransport {
     private final Car[] loadedCars;
     private final int distanceToTransport = 5;
+    private int angle;
 
     /**
      * Create a new car transport
@@ -100,6 +101,15 @@ public class TruckCarTransport extends Truck implements Ramp, CarTransport {
      */
     @Override
     public void setAngle(int angle) {
+        if(angle == 0) {
+            this.angle = 0;
+        }
+        else {
+            this.angle = 70;
+        }
         setMovementAllowed(angle == 0);
     }
+
+    @Override
+    public int getCurrentAngle() { return this.angle; }
 }

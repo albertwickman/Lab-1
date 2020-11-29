@@ -96,8 +96,12 @@ public class CarController {
     }
 
     public void startEngines() {
-        for (Vehicle v : vehicles)
+        for (Vehicle v : vehicles) {
             v.startEngine();
+            if(v instanceof Ramp) {
+
+            }
+        }
     }
 
     public void stopEngines() {
@@ -141,6 +145,18 @@ public class CarController {
     public void lowerRamp() {
         for(Ramp r : ramps) {
             r.setAngle(70);
+        }
+    }
+
+    public void turnRight() {
+        for(Vehicle v : vehicles) {
+            v.turnRight();
+        }
+    }
+
+    public void turnLeft() {
+        for(Vehicle v : vehicles) {
+            v.turnLeft();
         }
     }
 }

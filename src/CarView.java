@@ -36,6 +36,8 @@ public class CarView extends JFrame{
     JButton turboOffButton = new JButton("Saab Turbo off");
     JButton liftBedButton = new JButton("Scania Lift Bed");
     JButton lowerBedButton = new JButton("Lower Lift Bed");
+    JButton turnRightButton = new JButton("Turn Right");
+    JButton turnLeftButton = new JButton("Turn Left");
 
     JButton startButton = new JButton("Start all cars");
     JButton stopButton = new JButton("Stop all cars");
@@ -100,6 +102,17 @@ public class CarView extends JFrame{
         stopButton.setPreferredSize(new Dimension(X/5-15,200));
         this.add(stopButton);
 
+        turnRightButton.setBackground(Color.yellow);
+        turnRightButton.setForeground(Color.red);
+        turnRightButton.setPreferredSize(new Dimension(X/5-15,200));
+        this.add(turnRightButton);
+
+        turnLeftButton.setBackground(Color.yellow);
+        turnLeftButton.setForeground(Color.red);
+        turnLeftButton.setPreferredSize(new Dimension(X/5-15,200));
+        this.add(turnLeftButton);
+
+
         // This actionListener is for the gas button only
         // TODO: Create more for each component as necessary
         gasButton.addActionListener(new ActionListener() {
@@ -154,6 +167,20 @@ public class CarView extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 carC.lowerRamp();
+            }
+        });
+
+        turnRightButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                carC.turnRight();
+            }
+        });
+
+        turnLeftButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                carC.turnLeft();
             }
         });
 
