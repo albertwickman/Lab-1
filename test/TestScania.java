@@ -6,7 +6,7 @@ import java.awt.*;
 public class TestScania {
     @Test
     public void noMovementWhenRaised() {
-        Scania s = new Scania(2, 400, 0, Color.red, "BigAssTruck", 0,0);
+        Scania s = new Scania(2, 400);
         s.setAngle(40);
         s.move();
         assertFalse(s.isMovementAllowed());

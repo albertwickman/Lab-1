@@ -41,7 +41,7 @@ public class CarController {
         cc.addVehicle(saab);
         cc.addTurbo(saab);
 
-        Scania truck = new Scania(2, 100, 0, Color.BLACK, "Truck", 50, 250);
+        Scania truck = new Scania(50, 250);
         cc.addVehicle(truck);
         cc.addRamp(truck);
 
