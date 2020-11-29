@@ -133,6 +133,14 @@ public class CarController {
     }
 
     public void raiseRamp() {
+        for(Ramp r : ramps) {
+            r.setAngle(0);
+        }
+    }
 
+    public void lowerRamp() {
+        for(Ramp r : ramps) {
+            r.setAngle(70);
+        }
     }
 }
