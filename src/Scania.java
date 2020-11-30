@@ -46,4 +46,8 @@ public class Scania extends Truck implements Ramp{
     @Override
     public int getCurrentAngle() { return this.angle; }
 
+    @Override
+    public void startEngine() {
+        setMovementAllowed(this.angle == 0);
+    }
 }

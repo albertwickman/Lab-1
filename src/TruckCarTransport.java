@@ -112,4 +112,9 @@ public class TruckCarTransport extends Truck implements Ramp, CarTransport {
 
     @Override
     public int getCurrentAngle() { return this.angle; }
+
+    @Override
+    public void startEngine() {
+        setMovementAllowed(this.angle == 0);
+    }
 }
