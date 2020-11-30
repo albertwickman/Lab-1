@@ -27,6 +27,7 @@ public class TruckCarTransport extends Truck implements Ramp, CarTransport {
     public TruckCarTransport(int nrDoors, double enginePower, double currentSpeed, Color color, String modelName, int xCor, int yCor, int maxCars) {
         super(nrDoors, enginePower, currentSpeed, color, modelName, xCor, yCor);
         loadedCars = new Car[maxCars];
+        this.angle = 0;
     }
 
     @Override
@@ -113,8 +114,4 @@ public class TruckCarTransport extends Truck implements Ramp, CarTransport {
     @Override
     public int getCurrentAngle() { return this.angle; }
 
-    @Override
-    public void startEngine() {
-        setMovementAllowed(this.angle == 0);
-    }
 }

@@ -18,6 +18,7 @@ public abstract class Vehicle implements Movable {
     private double dy;
     private boolean movementAllowed;
     private boolean onTransport;
+    private boolean powerOn;
     public BufferedImage vehicleImage;
 
     /**
@@ -41,15 +42,16 @@ public abstract class Vehicle implements Movable {
         this.yCor = yCor;
         this.dx = currentSpeed;
         this.dy = currentSpeed;
-        this.movementAllowed = false;
+        this.movementAllowed = true;
         this.onTransport = false;
+        this.powerOn = false;
     }
 
     /**
      * Moves the car one step if movement is allowed.
      */
     public void move() {
-        if (isMovementAllowed() && !isOnTransport()) {
+        if (isPowerOn() && isMovementAllowed() && !isOnTransport()) {
             xCor += dx;
             yCor += dy;
         }
@@ -57,7 +59,7 @@ public abstract class Vehicle implements Movable {
 
     @Override
     public void gas(double amount){
-        if (!isOnTransport()) {
+        if (isPowerOn() && !isOnTransport() && isMovementAllowed()) {
             if (0 <= amount && amount <= 1)
                 incrementSpeed(amount);
             if (getDx() == 0 && getDy() >= 0)
@@ -74,7 +76,7 @@ public abstract class Vehicle implements Movable {
 
     @Override
     public void brake(double amount){
-        if (!isOnTransport()) {
+        if (isPowerOn() && !isOnTransport()) {
             if (0 <= amount && amount <= 1)
                 decrementSpeed(amount);
             if (getDx() == 0 && getDy() > 0)
@@ -142,7 +144,7 @@ public abstract class Vehicle implements Movable {
      * Starts engine.
      */
     public void startEngine(){
-        setMovementAllowed(true);
+        powerOn = true;
     }
 
     /**
@@ -152,7 +154,7 @@ public abstract class Vehicle implements Movable {
         setCurrentSpeed(0);
         setDx(0);
         setDy(0);
-        setMovementAllowed(false);
+        powerOn = false;
     }
 
     // ------------------- Setters and getters -------------------
@@ -197,6 +199,9 @@ public abstract class Vehicle implements Movable {
     protected void setCurrentSpeed(double currentSpeed) {
         if(0 <= currentSpeed && currentSpeed <= getEnginePower())
             this.currentSpeed = currentSpeed;
+        else if (currentSpeed < 0) {
+            this.currentSpeed = 0;
+        }
     }
 
     /**
@@ -253,4 +258,8 @@ public abstract class Vehicle implements Movable {
     public void setOnTransport(boolean onTransport) {
         this.onTransport = onTransport;
     }
+
+    public boolean isPowerOn() { return this.powerOn; }
+
+    public void setPowerOn() { this.powerOn = true; }
 }
