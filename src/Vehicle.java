@@ -20,6 +20,7 @@ public abstract class Vehicle implements Movable {
     private boolean onTransport;
     private boolean powerOn;
     public BufferedImage vehicleImage;
+    public Image background;
 
     /**
      * Instantiates a new Car.
