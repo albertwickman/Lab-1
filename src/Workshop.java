@@ -17,11 +17,11 @@ public class Workshop<C extends Car> {
 
     /**
      * Load a car into the workshop
-     * @param c Car to repair
+     * @param car Car to repair
      */
-    public void load(C c) {
+    public void load(C car) {
         if (cars.size() < maxCars)
-            cars.add(c);
+            cars.add(car);
     }
 
     /**
