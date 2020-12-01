@@ -1,27 +1,28 @@
 package src;
 
-import java.util.List;
+import java.util.ArrayList;
+
 
 public class Workshop<C extends Car> {
-    public List<C> cars;
+    public ArrayList<C> cars;
     private final int maxCars;
 
     /**
      * Create a workshop of type C
      * @param car What type of
      */
-    public Workshop(List<C> car, int maxCars) {
+    public Workshop(ArrayList<C> car, int maxCars) {
         this.cars = car;
         this.maxCars = maxCars;
     }
 
     /**
      * Load a car into the workshop
-     * @param c Car to repair
+     * @param car Car to repair
      */
-    public void load(C c) {
+    public void load(C car) {
         if (cars.size() < maxCars)
-            cars.add(c);
+            cars.add(car);
     }
 
     /**
