@@ -10,6 +10,7 @@ public class TestVehicle {
     @Test
     public void testMove() {
         Saab95 saab = new Saab95(50, 50);
+        saab.setMovementAllowed(true);
         saab.setDx(5);                    // we set dx to 5 and dy to 10 and call the move method
         saab.setDy(10);                   // we then want to see if the x and y coordinates differ by 5
         saab.move();
@@ -68,7 +69,7 @@ public class TestVehicle {
     public void startEngine() {
         Saab95 saab = new Saab95(0,0);
         saab.startEngine();
-        assertEquals(0, Double.compare(0.1, saab.getCurrentSpeed()));
+        assertTrue(saab.isMovementAllowed());
     }
 
     @Test

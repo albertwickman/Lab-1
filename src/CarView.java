@@ -102,15 +102,15 @@ public class CarView extends JFrame{
         stopButton.setPreferredSize(new Dimension(X/5-15,200));
         this.add(stopButton);
 
-        turnRightButton.setBackground(Color.yellow);
-        turnRightButton.setForeground(Color.red);
-        turnRightButton.setPreferredSize(new Dimension(X/5-15,200));
-        this.add(turnRightButton);
-
         turnLeftButton.setBackground(Color.yellow);
         turnLeftButton.setForeground(Color.red);
         turnLeftButton.setPreferredSize(new Dimension(X/5-15,200));
         this.add(turnLeftButton);
+
+        turnRightButton.setBackground(Color.yellow);
+        turnRightButton.setForeground(Color.red);
+        turnRightButton.setPreferredSize(new Dimension(X/5-15,200));
+        this.add(turnRightButton);
 
 
         // This actionListener is for the gas button only
