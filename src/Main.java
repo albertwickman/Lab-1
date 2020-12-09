@@ -11,8 +11,6 @@ public class Main {
         CarView frame = new CarView("CarSim 1.0");
         model.addModelObserver(frame);
 
-        CarController cc = new CarController(model, 800, 250);
-
         model.addVehicle(new Volvo240(50, 50));
 
         Saab95 saab = new Saab95(50, 150);
@@ -23,6 +21,7 @@ public class Main {
         model.addVehicle(truck);
         model.addRamp(truck);
 
+        new CarController(model, 800, 250);
         new Thread(model).start();
     }
 }
