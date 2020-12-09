@@ -16,14 +16,16 @@ import java.util.ArrayList;
 public class CarController extends Main{
     // member fields:
 
-
-
     // The frame that represents this instance View of the MVC pattern
     CarView frame;
     // A list of cars, modify if needed
     ArrayList<Vehicle> vehicles = new ArrayList<>();
     ArrayList<Turbo> turbos = new ArrayList<>();
     ArrayList<Ramp> ramps = new ArrayList<>();
+    final int delay = 50;
+    // The timer is started with an listener (see below) that executes the statements
+    // each step between delays.
+    final Timer timer = new Timer(delay, new CarController.TimerListener());
 
     //methods:
 
