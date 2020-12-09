@@ -7,7 +7,7 @@ import javax.swing.*;
 
 public class DrawPanel extends JPanel{
 
-    private ArrayList<Vehicle> vehicles;
+    private ArrayList<Vehicle> vehicles = new ArrayList<>();
 
     // Initializes the panel and reads the images
     public DrawPanel(int x, int y) {

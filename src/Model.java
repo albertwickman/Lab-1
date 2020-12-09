@@ -4,14 +4,15 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Set;
 
 public class Model implements Runnable {
 
-    private Set<ModelObserver> modelObservers;
-    private ArrayList<Vehicle> vehicles;
-    private ArrayList<Ramp> ramps;
-    private ArrayList<Turbo> turbos;
+    private ArrayList<ModelObserver> modelObservers = new ArrayList<>();
+    private ArrayList<Vehicle> vehicles = new ArrayList<>();
+    private ArrayList<Ramp> ramps = new ArrayList<>();
+    private ArrayList<Turbo> turbos = new ArrayList<>();
     private final int width;
     private final int height;
 
@@ -38,6 +39,9 @@ public class Model implements Runnable {
         for (Vehicle vehicle : vehicles) {
             vehicle.move();
             checkBoundaries(vehicle);
+        }
+        for(ModelObserver m : modelObservers) {
+            m.actOnChange(vehicles);
         }
     }
 
@@ -121,7 +125,7 @@ public class Model implements Runnable {
         }
     }
 
-    public Set<ModelObserver> getModelObservers() { return this.modelObservers;}
+    public ArrayList<ModelObserver> getModelObservers() { return this.modelObservers;}
     public void addModelObserver(ModelObserver modelObserver) {
         this.modelObservers.add(modelObserver);
     }
