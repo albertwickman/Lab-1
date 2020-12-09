@@ -1,5 +1,7 @@
 package src;
 
+import java.util.ArrayList;
+
 public interface ModelObserver {
-    void actOnChange(Vehicle v);
+    void actOnChange(ArrayList<Vehicle> vehicles);
 }
