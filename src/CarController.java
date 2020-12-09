@@ -35,7 +35,7 @@ public class CarController extends Main{
 
     public void addVehicle(Vehicle v) {
         vehicles.add(v);
-        frame.drawPanel.vehicles.add(v);
+        frame.addVehicle(v);
     }
 
     /* Each step the TimerListener moves all the cars in the list and tells the
@@ -49,7 +49,7 @@ public class CarController extends Main{
                 int x = (int) Math.round(vehicle.getXcor());
                 int y = (int) Math.round(vehicle.getyCor());
                 // repaint() calls the paintComponent method of the panel
-                frame.drawPanel.repaint();
+                frame.repaintVehicles();
             }
         }
     }
