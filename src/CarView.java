@@ -11,10 +11,10 @@ import java.awt.*;
 
 public class CarView extends JFrame{
     private static final int X = 800;
-    private static final int Y = 600;
+    private static final int Y = 400;
     private final String title;
 
-    DrawPanel drawPanel = new DrawPanel(X, Y-240);
+    DrawPanel drawPanel = new DrawPanel(X, Y);
 
     public CarView(String title) {
         this.title = title;

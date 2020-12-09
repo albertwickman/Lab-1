@@ -97,7 +97,7 @@ public abstract class Vehicle implements Movable {
     }
 
     private void incrementSpeed(double amount){
-        setCurrentSpeed(Math.min(getCurrentSpeed() + speedFactor() * amount,getEnginePower()));
+        setCurrentSpeed(Math.min(getCurrentSpeed() + speedFactor() * amount, getEnginePower()  / 10));
     }
 
     @Override
