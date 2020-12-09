@@ -28,8 +28,7 @@ public class CarController extends Main{
     final Timer timer = new Timer(delay, new CarController.TimerListener());
 
     public CarController(String frameName) {
-        this.frame = new CarView(frameName, this);
-
+        this.frame = new CarView(frameName);
     }
 
     //methods:
