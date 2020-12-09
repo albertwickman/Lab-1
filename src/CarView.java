@@ -9,7 +9,7 @@ import java.awt.*;
  * each of it's components.
  **/
 
-public class CarView extends JFrame{
+public class CarView extends JFrame implements ModelObserver {
     private static final int X = 800;
     private static final int Y = 400;
     private final String title;
@@ -59,5 +59,10 @@ public class CarView extends JFrame{
 
     public void repaintVehicles() {
         drawPanel.repaint();
+    }
+
+    @Override
+    public void actOnChange(Vehicle v) {
+
     }
 }

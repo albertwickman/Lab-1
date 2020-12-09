@@ -219,8 +219,6 @@ public class CarController extends JFrame {
             for (Vehicle vehicle : vehicles) {
                 vehicle.move();
                 checkBoundaries(vehicle);
-                int x = (int) Math.round(vehicle.getXcor());
-                int y = (int) Math.round(vehicle.getyCor());
                 // repaint() calls the paintComponent method of the panel
                 frame.repaintVehicles();
             }
