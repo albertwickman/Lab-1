@@ -27,6 +27,11 @@ public class CarController extends Main{
     // each step between delays.
     final Timer timer = new Timer(delay, new CarController.TimerListener());
 
+    public CarController(String frameName) {
+        this.frame = new CarView(frameName, this);
+
+    }
+
     //methods:
 
     public void addTurbo(Turbo t) {

@@ -23,8 +23,7 @@ public class Scania extends Truck implements Ramp{
         this.angle = MIN_ANGLE;
         try {
             vehicleImage = ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Scania.jpg"));
-        } catch (IOException ex)
-        {
+        } catch (IOException ex) {
             ex.printStackTrace();
         }
     }
