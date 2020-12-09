@@ -1,8 +1,6 @@
 package src;
 import java.awt.*;
-import java.awt.image.BufferedImage;
 import java.util.ArrayList;
-import javax.imageio.ImageIO;
 import javax.swing.*;
 
 // This panel represent the animated part of the view with the car images.
