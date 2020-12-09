@@ -1,6 +1,7 @@
 package src;
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 /**
  * This class represents the full view of the MVC pattern of your car simulator.
@@ -14,7 +15,7 @@ public class CarView extends JFrame implements ModelObserver {
     private static final int Y = 400;
     private final String title;
 
-    DrawPanel drawPanel = new DrawPanel(X, Y);
+    DrawPanel drawPanel = new DrawPanel(X,Y);
 
     public CarView(String title) {
         this.title = title;
@@ -27,7 +28,7 @@ public class CarView extends JFrame implements ModelObserver {
         this.setTitle(title);
         this.setPreferredSize(new Dimension(X,Y));
         this.setLayout(new FlowLayout(FlowLayout.LEFT, 0, 0));
-
+        this.setBackground(Color.gray);
         this.add(drawPanel);
 
         // Make the frame pack all it's components by respecting the sizes if possible.
@@ -53,16 +54,9 @@ public class CarView extends JFrame implements ModelObserver {
         return Y;
     }
 
-    public void addVehicle(Vehicle v) {
-        drawPanel.vehicles.add(v);
-    }
-
-    public void repaintVehicles() {
-        drawPanel.repaint();
-    }
-
     @Override
-    public void actOnChange(Vehicle v) {
-
+    public void actOnChange(ArrayList<Vehicle> vehicles) {
+        drawPanel.updateVehicles(vehicles);
+        drawPanel.repaint();
     }
 }

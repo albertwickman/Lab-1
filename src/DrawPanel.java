@@ -9,12 +9,16 @@ import javax.swing.*;
 
 public class DrawPanel extends JPanel{
 
-    ArrayList<Vehicle> vehicles = new ArrayList<>();
+    private ArrayList<Vehicle> vehicles;
 
     // Initializes the panel and reads the images
     public DrawPanel(int x, int y) {
         this.setDoubleBuffered(true);
         this.setPreferredSize(new Dimension(x, y));
+    }
+
+    public void updateVehicles(ArrayList<Vehicle> vehicles) {
+        this.vehicles = vehicles;
     }
 
     // This method is called each time the panel updates/refreshes/repaints itself
