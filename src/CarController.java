@@ -198,19 +198,6 @@ public class CarController extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
-    public void addTurbo(Turbo t) {
-        turbos.add(t);
-    }
-
-    public void addRamp(Ramp r) {
-        ramps.add(r);
-    }
-
-    public void addVehicle(Vehicle v) {
-        vehicles.add(v);
-        frame.addVehicle(v);
-    }
-
     /* Each step the TimerListener moves all the cars in the list and tells the
      * view to update its images. Change this method to your needs.
      * */
