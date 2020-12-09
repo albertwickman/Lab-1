@@ -12,18 +12,23 @@ import java.awt.*;
 public class CarView extends JFrame{
     private static final int X = 800;
     private static final int Y = 600;
+    private final String title;
 
     DrawPanel drawPanel = new DrawPanel(X, Y-240);
 
+    public CarView(String title) {
+        this.title = title;
+        initComponents();
+    }
+
     // Sets everything in place and fits everything
-    private void initComponents(String title) {
+    private void initComponents() {
 
         this.setTitle(title);
         this.setPreferredSize(new Dimension(X,Y));
         this.setLayout(new FlowLayout(FlowLayout.LEFT, 0, 0));
 
         this.add(drawPanel);
-
 
         // Make the frame pack all it's components by respecting the sizes if possible.
         this.pack();

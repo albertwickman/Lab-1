@@ -8,9 +8,10 @@ public class Main {
         // Instance of this class
 
         // The delay (ms) corresponds to 20 updates a sec (hz)
-        CarController cc = new CarController("Smack");
+        CarView frame = new CarView("CarSim 1.0");
 
-        cc.frame = new CarView("CarSim 1.0", cc);
+        CarController cc = new CarController(frame, frame.getX(), frame.getY());
+
         cc.addVehicle(new Volvo240(50, 50));
 
         Saab95 saab = new Saab95(50, 150);
