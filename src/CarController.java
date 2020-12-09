@@ -13,14 +13,10 @@ import java.util.ArrayList;
 * modifying the model state and the updating the view.
  */
 
-public class CarController {
+public class CarController extends Main{
     // member fields:
 
-    // The delay (ms) corresponds to 20 updates a sec (hz)
-    private final int delay = 50;
-    // The timer is started with an listener (see below) that executes the statements
-    // each step between delays.
-    private final Timer timer = new Timer(delay, new TimerListener());
+
 
     // The frame that represents this instance View of the MVC pattern
     CarView frame;
@@ -30,28 +26,6 @@ public class CarController {
     ArrayList<Ramp> ramps = new ArrayList<>();
 
     //methods:
-
-    public static void main(String[] args) throws IOException {
-        // Instance of this class
-        CarController cc = new CarController();
-        cc.frame = new CarView("CarSim 1.0", cc);
-        cc.addVehicle(new Volvo240(50, 50));
-
-        Saab95 saab = new Saab95(50, 150);
-        cc.addVehicle(saab);
-        cc.addTurbo(saab);
-
-        Scania truck = new Scania(50, 250);
-        cc.addVehicle(truck);
-        cc.addRamp(truck);
-
-
-        // Start a new view and send a reference of self
-
-
-        // Start the timer
-        cc.timer.start();
-    }
 
     public void addTurbo(Turbo t) {
         turbos.add(t);
