@@ -18,16 +18,13 @@ import javax.swing.event.ChangeListener;
 public class CarController extends JFrame {
     // member fields:
 
+    private final Model model;
     // The frame that represents this instance View of the MVC pattern
-    CarView frame;
+
     // A list of cars, modify if needed
     ArrayList<Vehicle> vehicles = new ArrayList<>();
-    ArrayList<Turbo> turbos = new ArrayList<>();
-    ArrayList<Ramp> ramps = new ArrayList<>();
-    final int delay = 50;
     // The timer is started with an listener (see below) that executes the statements
     // each step between delays.
-    final Timer timer = new Timer(delay, new CarController.TimerListener());
     private final int X;
     private final int Y;
 
@@ -50,8 +47,8 @@ public class CarController extends JFrame {
     JButton startButton = new JButton("Start all cars");
     JButton stopButton = new JButton("Stop all cars");
 
-    public CarController(CarView frame, int x, int y) {
-        this.frame = frame;
+    public CarController(Model model, int x, int y) {
+        this.model = model;
         this.X = x;
         this.Y = y;
         initComponent();
@@ -120,69 +117,69 @@ public class CarController extends JFrame {
         gasButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                gas(gasAmount);
+                model.gas(gasAmount);
             }
         });
         brakeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                brake(gasAmount);
+                model.brake(gasAmount);
             }
         });
 
         turboOnButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                setTurboOn();
+                model.setTurboOn();
             }
         });
 
         turboOffButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                setTurboOff();
+                model.setTurboOff();
             }
         });
 
         startButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                startEngines();
+                model.startEngines();
             }
         });
 
         stopButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                stopEngines();
+                model.stopEngines();
             }
         });
 
         liftBedButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                raiseRamp();
+                model.raiseRamp();
             }
         });
 
         lowerBedButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                lowerRamp();
+                model.lowerRamp();
             }
         });
 
         turnRightButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                turnRight();
+                model.turnRight();
             }
         });
 
         turnLeftButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                turnLeft();
+                model.turnLeft();
             }
         });
 
@@ -198,98 +195,4 @@ public class CarController extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
-    /* Each step the TimerListener moves all the cars in the list and tells the
-     * view to update its images. Change this method to your needs.
-     * */
-    private class TimerListener implements ActionListener {
-        public void actionPerformed(ActionEvent e) {
-            for (Vehicle vehicle : vehicles) {
-                vehicle.move();
-                checkBoundaries(vehicle);
-                // repaint() calls the paintComponent method of the panel
-                frame.repaintVehicles();
-            }
-        }
-    }
-
-    // Calls the gas method for each car once
-    public void gas(int amount) {
-        double gas = ((double) amount) / 100;
-        for (Vehicle vehicle : vehicles) {
-            vehicle.gas(gas);
-        }
-    }
-
-    public void brake(int amount) {
-        double brake = ((double) amount) / 100;
-        for (Vehicle vehicle : vehicles) {
-            vehicle.brake(brake);
-        }
-    }
-
-    /*
-    **BUG**
-    Starts all engines even if ramp is lowered.
-     */
-    public void startEngines() {
-        for (Vehicle v : vehicles) {
-            v.startEngine();
-        }
-    }
-
-    public void stopEngines() {
-        for (Vehicle v : vehicles) {
-            v.stopEngine();
-        }
-    }
-
-    private void checkBoundaries(Vehicle v) {
-        if (isOnEdge(v))
-            invertDirection(v);
-    }
-
-    private void invertDirection(Vehicle v) {
-        v.setDx(-1 * v.getDx());
-        v.setDy(-1 * v.getDy());
-    }
-
-    private boolean isOnEdge(Vehicle v) {
-        return v.getXcor() > frame.getX() - 115 || v.getXcor() < 0 || v.getyCor() < 0 || v.getyCor() > frame.getY() - 90;
-    }
-
-    public void setTurboOn() {
-        for (Turbo t : turbos) {
-            t.setTurboOn();
-        }
-    }
-
-    public void setTurboOff() {
-        for (Turbo t : turbos) {
-            t.setTurboOff();
-        }
-    }
-
-    public void raiseRamp() {
-        for (Ramp r : ramps) {
-            r.setAngle(0);
-        }
-    }
-
-    public void lowerRamp() {
-        for (Ramp r : ramps) {
-            r.setAngle(70);
-        }
-    }
-
-    public void turnRight() {
-        for (Vehicle v : vehicles) {
-            v.turnRight();
-        }
-    }
-
-    public void turnLeft() {
-        for (Vehicle v : vehicles) {
-            v.turnLeft();
-        }
-    }
 }

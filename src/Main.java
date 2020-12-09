@@ -11,7 +11,7 @@ public class Main {
         // The delay (ms) corresponds to 20 updates a sec (hz)
         CarView frame = new CarView("CarSim 1.0");
 
-        CarController cc = new CarController(frame, 800, 250);
+        CarController cc = new CarController(model, 800, 250);
 
         model.addVehicle(new Volvo240(50, 50));
 

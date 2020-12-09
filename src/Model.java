@@ -1,9 +1,12 @@
 package src;
 
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Set;
 
-public class Model {
+public class Model implements Runnable {
 
     private Set<ModelObserver> modelObservers;
     private ArrayList<Vehicle> vehicles;
@@ -16,6 +19,98 @@ public class Model {
         this.width = width;
         this.height = height;
 
+    }
+
+    @Override
+    public void run() {
+        while(true) {
+            try {
+                delay();
+            }
+            catch (InterruptedException e) {
+                break;
+            }
+        }
+    }
+
+    private void delay() throws InterruptedException {
+        Thread.sleep(50);
+    }
+
+    public void gas(int amount) {
+        double gas = ((double) amount) / 100;
+        for (Vehicle vehicle : vehicles) {
+            vehicle.gas(gas);
+        }
+    }
+
+    public void brake(int amount) {
+        double brake = ((double) amount) / 100;
+        for (Vehicle vehicle : vehicles) {
+            vehicle.brake(brake);
+        }
+    }
+
+    public void startEngines() {
+        for (Vehicle v : vehicles) {
+            v.startEngine();
+        }
+    }
+
+    public void stopEngines() {
+        for (Vehicle v : vehicles) {
+            v.stopEngine();
+        }
+    }
+
+    private void checkBoundaries(Vehicle v) {
+        if (isOnEdge(v))
+            invertDirection(v);
+    }
+
+    private void invertDirection(Vehicle v) {
+        v.setDx(-1 * v.getDx());
+        v.setDy(-1 * v.getDy());
+    }
+
+    private boolean isOnEdge(Vehicle v) {
+        return v.getXcor() > getWidth() - 115 || v.getXcor() < 0 || v.getyCor() < 0 || v.getyCor() > getHeight() - 90;
+    }
+
+    public void setTurboOn() {
+        for (Turbo t : turbos) {
+            t.setTurboOn();
+        }
+    }
+
+    public void setTurboOff() {
+        for (Turbo t : turbos) {
+            t.setTurboOff();
+        }
+    }
+
+    public void raiseRamp() {
+        for (Ramp r : ramps) {
+            r.setAngle(0);
+        }
+    }
+
+    public void lowerRamp() {
+        for (Ramp r : ramps) {
+            r.setAngle(70);
+        }
+    }
+
+    public void turnRight() {
+        for (Vehicle v : vehicles) {
+            v.turnRight();
+        }
+    }
+
+    public void turnLeft() {
+        for (Vehicle v : vehicles) {
+            v.turnLeft();
+        }
     }
 
     public Set<ModelObserver> getModelObservers() { return this.modelObservers;}
