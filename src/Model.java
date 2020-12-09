@@ -26,10 +26,18 @@ public class Model implements Runnable {
         while(true) {
             try {
                 delay();
+                update();
             }
             catch (InterruptedException e) {
                 break;
             }
+        }
+    }
+
+    private void update() {
+        for (Vehicle vehicle : vehicles) {
+            vehicle.move();
+            checkBoundaries(vehicle);
         }
     }
 

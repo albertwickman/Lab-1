@@ -16,15 +16,8 @@ import javax.swing.event.ChangeListener;
  */
 
 public class CarController extends JFrame {
-    // member fields:
 
     private final Model model;
-    // The frame that represents this instance View of the MVC pattern
-
-    // A list of cars, modify if needed
-    ArrayList<Vehicle> vehicles = new ArrayList<>();
-    // The timer is started with an listener (see below) that executes the statements
-    // each step between delays.
     private final int X;
     private final int Y;
 
