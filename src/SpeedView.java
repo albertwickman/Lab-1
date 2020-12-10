@@ -5,8 +5,7 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class SpeedView extends JFrame implements ModelObserver {
-    private String label = "";
-    private final JLabel jLabel = new JLabel(label);
+    private final JLabel jLabel = new JLabel();
     private final JPanel panel = new JPanel();
 
     public SpeedView() {
@@ -32,7 +31,7 @@ public class SpeedView extends JFrame implements ModelObserver {
 
         stringBuilder.append("<html>");
         for (Vehicle vehicle : vehicles) {
-            stringBuilder.append(vehicle.getModelName()).append(": ").append(vehicle.getCurrentSpeed()).append("<br>");
+            stringBuilder.append(vehicle.getModelName()).append(": ").append((double) Math.round(vehicle.getCurrentSpeed() * 100) / 100).append("<br>");
         }
         stringBuilder.append("</html>");
 
