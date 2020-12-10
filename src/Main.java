@@ -25,5 +25,7 @@ public class Main {
 
         new CarController(model, 800, 250);
         new Thread(model).start();
+
+        JLabel test = new JLabel("Test");
     }
 }

@@ -36,9 +36,7 @@ public class Scania extends Truck implements Ramp{
     public void setAngle(int angle) {
         if (getCurrentSpeed() == 0 && MIN_ANGLE <= angle && angle <= MAX_ANGLE) {
             this.angle = angle;
-            System.out.println(this.angle);
             setMovementAllowed(angle == MIN_ANGLE);
-            System.out.println(isMovementAllowed());
         }
     }
 
