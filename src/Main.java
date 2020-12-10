@@ -8,8 +8,10 @@ public class Main {
 
         Model model = new Model(800, 400);
         // The delay (ms) corresponds to 20 updates a sec (hz)
-        CarView frame = new CarView("CarSim 1.0");
+        CarView frame = new CarView("Grand Turismo");
+        SpeedView fastAsLightning = new SpeedView();
         model.addModelObserver(frame);
+        model.addModelObserver(fastAsLightning);
 
         model.addVehicle(new Volvo240(50, 50));
 
