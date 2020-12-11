@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Model implements Runnable {
 
-    private ArrayList<ModelObserver> modelObservers = new ArrayList<>();
+    private final ArrayList<ModelObserver> modelObservers = new ArrayList<>();
     private ArrayList<Vehicle> vehicles = new ArrayList<>();
     private ArrayList<Ramp> ramps = new ArrayList<>();
     private ArrayList<Turbo> turbos = new ArrayList<>();

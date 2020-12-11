@@ -6,8 +6,6 @@ import java.awt.*;
  * Class describing a car transport. Extends Truck and implements Ramp.
  */
 
-//Inte samma bil på olika TruckCarTransport
-    // Bilen ska veta att den är på en transport
 public class TruckCarTransport extends Truck implements Ramp, CarTransport {
     private final Car[] loadedCars;
     private final int distanceToTransport = 5;

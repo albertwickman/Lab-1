@@ -4,10 +4,10 @@ import javax.swing.*;
 import java.io.IOException;
 
 public class Main {
+
     public static void main(String[] args) throws IOException {
 
         Model model = new Model(800, 400);
-        // The delay (ms) corresponds to 20 updates a sec (hz)
         CarView frame = new CarView("Grand Turismo");
         SpeedView fastAsLightning = new SpeedView();
         model.addModelObserver(frame);
@@ -25,7 +25,5 @@ public class Main {
 
         new CarController(model, 800, 250);
         new Thread(model).start();
-
-        JLabel test = new JLabel("Test");
     }
 }

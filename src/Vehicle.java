@@ -6,11 +6,10 @@ import java.awt.image.BufferedImage;
 /**
  * Abstract class for vehicles
  */
-public abstract class Vehicle implements Movable {
-    private final int nrDoors;
+public abstract class Vehicle implements Movable, Turnable, Gas, Brake {
+    VehicleAppearance vehicleAppearance;
     private final double enginePower;
     private double currentSpeed;
-    private Color color;
     private final String modelName;
     private double xCor;
     private double yCor;
@@ -33,10 +32,9 @@ public abstract class Vehicle implements Movable {
     public Vehicle(int nrDoors, double enginePower, double currentSpeed, Color color,
                 String modelName, int xCor, int yCor) {
 
-        this.nrDoors = nrDoors;
+        this.vehicleAppearance = new VehicleAppearance(nrDoors, color);
         this.enginePower = enginePower;
         this.currentSpeed = currentSpeed;
-        this.color = color;
         this.modelName = modelName;
         this.xCor = xCor;
         this.yCor = yCor;
@@ -163,7 +161,7 @@ public abstract class Vehicle implements Movable {
      *
      * @return the nr doors
      */
-    public int getNrDoors() { return nrDoors; }
+    public int getNrDoors() { return vehicleAppearance.getNrDoors(); }
 
     public double getXcor() { return xCor; }
 
@@ -209,14 +207,14 @@ public abstract class Vehicle implements Movable {
      *
      * @return the color
      */
-    public Color getColor() { return color; }
+    public Color getColor() { return vehicleAppearance.getColor(); }
 
     /**
      * Sets color.
      *
      * @param color the color
      */
-    public void setColor(Color color) { this.color = color; }
+    public void setColor(Color color) { vehicleAppearance.setColor(color); }
 
     /**
      * Gets model name.
