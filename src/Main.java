@@ -1,13 +1,12 @@
 package src;
 
-import javax.swing.*;
 import java.io.IOException;
 
 public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        Model model = new Model(800, 400);
+        Model model = new Model(new VehicleModel(), new TurboModel(), new RampModel(), 800, 400);
         CarView frame = new CarView("Grand Turismo");
         SpeedView fastAsLightning = new SpeedView();
         model.addModelObserver(frame);

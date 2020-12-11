@@ -5,13 +5,17 @@ import java.util.ArrayList;
 public class Model implements Runnable {
 
     private final ArrayList<ModelObserver> modelObservers = new ArrayList<>();
-    private ArrayList<Vehicle> vehicles = new ArrayList<>();
-    private ArrayList<Ramp> ramps = new ArrayList<>();
-    private ArrayList<Turbo> turbos = new ArrayList<>();
+    private final VehicleModel vehicleModel;
+    private final TurboModel turboModel;
+    private final RampModel rampModel;
+
     private final int width;
     private final int height;
 
-    public Model(int width, int height) {
+    public Model(VehicleModel vehicleModel, TurboModel turboModel, RampModel rampModel, int width, int height) {
+        this.vehicleModel = vehicleModel;
+        this.turboModel = turboModel;
+        this.rampModel = rampModel;
         this.width = width;
         this.height = height;
 
@@ -31,6 +35,7 @@ public class Model implements Runnable {
     }
 
     private void update() {
+        ArrayList<Vehicle> vehicles = vehicleModel.getVehicles();
         for (Vehicle vehicle : vehicles) {
             vehicle.move();
             checkBoundaries(vehicle);
@@ -44,31 +49,7 @@ public class Model implements Runnable {
         Thread.sleep(50);
     }
 
-    public void gas(int amount) {
-        double gas = ((double) amount) / 100;
-        for (Vehicle vehicle : vehicles) {
-            vehicle.gas(gas);
-        }
-    }
 
-    public void brake(int amount) {
-        double brake = ((double) amount) / 100;
-        for (Vehicle vehicle : vehicles) {
-            vehicle.brake(brake);
-        }
-    }
-
-    public void startEngines() {
-        for (Vehicle v : vehicles) {
-            v.startEngine();
-        }
-    }
-
-    public void stopEngines() {
-        for (Vehicle v : vehicles) {
-            v.stopEngine();
-        }
-    }
 
     private void checkBoundaries(Vehicle v) {
         if (isOnEdge(v))
@@ -84,55 +65,35 @@ public class Model implements Runnable {
         return v.getXcor() > getWidth() - 115 || v.getXcor() < 0 || v.getyCor() < 0 || v.getyCor() > getHeight() - 90;
     }
 
-    public void setTurboOn() {
-        for (Turbo t : turbos) {
-            t.setTurboOn();
-        }
+
+    // ********** Getters and Setters*********
+
+    public VehicleModel getVehicleModel() {
+        return vehicleModel;
     }
 
-    public void setTurboOff() {
-        for (Turbo t : turbos) {
-            t.setTurboOff();
-        }
+    public TurboModel getTurboModel() {
+        return turboModel;
     }
 
-    public void raiseRamp() {
-        for (Ramp r : ramps) {
-            r.setAngle(0);
-        }
+    public RampModel getRampModel() {
+        return rampModel;
     }
 
-    public void lowerRamp() {
-        for (Ramp r : ramps) {
-            r.setAngle(70);
-        }
-    }
-
-    public void turnRight() {
-        for (Vehicle v : vehicles) {
-            v.turnRight();
-        }
-    }
-
-    public void turnLeft() {
-        for (Vehicle v : vehicles) {
-            v.turnLeft();
-        }
-    }
 
     public ArrayList<ModelObserver> getModelObservers() { return this.modelObservers;}
     public void addModelObserver(ModelObserver modelObserver) {
         this.modelObservers.add(modelObserver);
     }
 
-    public ArrayList<Vehicle> getVehicles() { return vehicles; }
-    public void addVehicle(Vehicle vehicle) { this.vehicles.add(vehicle); }
+    public ArrayList<Vehicle> getVehicles() { return vehicleModel.getVehicles(); }
+    public void addVehicle(Vehicle vehicle) { vehicleModel.addVehicle(vehicle); }
 
-    public ArrayList<Ramp> getRamps() { return ramps; }
-    public void addRamp(Ramp ramp) { this.ramps.add(ramp); }
+    public ArrayList<Ramp> getRamps() { return rampModel.getRamps(); }
+    public void addRamp(Ramp ramp) { rampModel.addRamp(ramp); }
 
-    public ArrayList<Turbo> getTurbos() { return turbos; }
-    public void addTurbo(Turbo turbo) { this.turbos.add(turbo); }
+    public ArrayList<Turbo> getTurbos() { return turboModel.getTurbos(); }
+    public void addTurbo(Turbo turbo) { this.turboModel.addTurbo(turbo); }
 
     public int getHeight() { return this.height; }
     public int getWidth() { return this.width; }
