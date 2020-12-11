@@ -57,8 +57,8 @@ public class Model implements Runnable {
     }
 
     private void invertDirection(Vehicle v) {
-        v.setDx(-1 * v.getDx());
-        v.setDy(-1 * v.getDy());
+        v.setDx(-v.getDx());
+        v.setDy(-v.getDy());
     }
 
     private boolean isOnEdge(Vehicle v) {
@@ -66,7 +66,7 @@ public class Model implements Runnable {
     }
 
 
-    // ********** Getters and Setters*********
+    // ********** Getters and Setters *********
 
     public VehicleModel getVehicleModel() {
         return vehicleModel;

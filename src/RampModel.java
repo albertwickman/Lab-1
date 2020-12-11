@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class RampModel {
 
-    private ArrayList<Ramp> ramps = new ArrayList<>();
+    private final ArrayList<Ramp> ramps = new ArrayList<>();
 
     public void raiseRamp() {
         for (Ramp r : ramps) {

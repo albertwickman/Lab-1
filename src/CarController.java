@@ -5,7 +5,6 @@ import javax.swing.event.ChangeEvent;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import javax.swing.event.ChangeListener;
 
 
@@ -20,7 +19,6 @@ public class CarController extends JFrame {
     private final VehicleModel vehicleModel;
     private final TurboModel turboModel;
     private final RampModel rampModel;
-    private final Model model;
     private final int X;
     private final int Y;
 
@@ -44,7 +42,6 @@ public class CarController extends JFrame {
     JButton stopButton = new JButton("Stop all cars");
 
     public CarController(Model model, int x, int y) {
-        this.model = model;
         this.X = x;
         this.Y = y;
         this.vehicleModel = model.getVehicleModel();
@@ -95,7 +92,6 @@ public class CarController extends JFrame {
         startButton.setForeground(Color.green);
         startButton.setPreferredSize(new Dimension(X/5-15,200));
         this.add(startButton);
-
 
         stopButton.setBackground(Color.red);
         stopButton.setForeground(Color.black);

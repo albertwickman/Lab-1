@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class TurboModel {
 
-    private ArrayList<Turbo> turbos = new ArrayList<>();
+    private final ArrayList<Turbo> turbos = new ArrayList<>();
 
     public void setTurboOn() {
         for (Turbo t : turbos) {

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class VehicleModel {
 
-    private ArrayList<Vehicle> vehicles = new ArrayList<>();
+    private final ArrayList<Vehicle> vehicles = new ArrayList<>();
 
 
     public void gas(int amount) {
